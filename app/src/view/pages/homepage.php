@@ -1,6 +1,7 @@
 <?php
 $title = 'Homepage';
-include __DIR__ . '/../layouts/__header.php';
+global $VIEW_DIR;
+include $VIEW_DIR . '/layouts/__header.php';
 ?>
 
 <h1>Homepage</h1>

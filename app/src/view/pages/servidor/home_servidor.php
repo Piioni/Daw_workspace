@@ -1,6 +1,7 @@
 <?php
 $titulo = 'Homepage';
-include __DIR__ . '/../../layouts/__header.php';
+global $VIEW_DIR;
+include $VIEW_DIR . '/layouts/__header.php';
 ?>
 
 <h1>Homepage</h1>
@@ -14,7 +15,4 @@ include __DIR__ . '/../../layouts/__header.php';
     <li><a href="/servidor/1/archivo">Ejercicio 4: Archivo</a></li>
 </ul>
 
-<?php include __DIR__ . '/../../layouts/__footer.php'; ?>
-
-
-
+<?php include $VIEW_DIR . '/layouts/__footer.php'; ?>

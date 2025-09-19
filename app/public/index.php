@@ -3,7 +3,10 @@ $routeConfig = require __DIR__ . '/../config/routes.php';
 
 session_start();
 
-class ViewRenderer 
+// Definir variable global para el directorio view
+$GLOBALS['VIEW_DIR'] = __DIR__ . '/../src/view';
+
+class ViewRenderer
 {
     private array $config;
     
@@ -50,6 +53,9 @@ class ViewRenderer
         
         foreach ($viewPaths as $path) {
             if (file_exists($path)) {
+                // Asegurar que la variable global esté disponible en la vista
+                global $VIEW_DIR;
+                $VIEW_DIR = $GLOBALS['VIEW_DIR'];
                 include($path);
                 return;
             }

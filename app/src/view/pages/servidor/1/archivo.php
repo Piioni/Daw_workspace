@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . '/../../../layouts/__header.php';
+global $VIEW_DIR;
+include $VIEW_DIR . '/layouts/__header.php';
 
 $title = "Lectura de archivos";
 // Usa ruta absoluta basada en __DIR__
@@ -16,5 +17,4 @@ if ($archivo) {
 } else {
     echo "<p>No se pudo abrir el archivo.</p>";
 }
-include __DIR__ . '/../../../layouts/__footer.php';
-
+include $VIEW_DIR . '/layouts/__footer.php';
