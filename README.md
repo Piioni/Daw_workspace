@@ -1,55 +1,31 @@
-# 🐳 Docker Configuration Repository
+# 🐳 Docker Php/Javascript/Diseno Repository
 
-Welcome to my repository for Docker configuration files! Here you'll find setup files for a simple PHP project with Apache. 🚀
+Bienvenido!, este repositorio contiene todos los ejercicios que voy realizando durante las clases 
 
 ---
 
 ## 📋 Prerequisites
-- Make sure Docker is installed on your machine.
+- Asegurarse tener Docker Desktop instalado. 
 
 ---
 
 ## 🚀 Usage
-1. Clone this repository to your working directory:
-   ```bash
-   git clone https://github.com/Piioni/Docker_config.git
-   ```
-   
-2. Navigate to the project directory:
-   ```bash
-   cd Docker_config
-   ```
-
-3. Build and start the containers using Docker Compose:
+1. Build and start the containers using Docker Compose:
    ```bash
    docker-compose up -d
    ```
-
-4. To view container logs:
-   ```bash
-   docker-compose logs -f
-   ```
-
-5. To stop the containers:
-   ```bash
-   docker-compose down
-   ```
+2. Access the web server at `http://localhost:8080` 
 
 ---
 
 ## 🌐 Notes
-- That's it! You can now start developing your PHP application. The web server will be available at `http://localhost:8080`.
+
+1. Si estas aqui por que vas a revisar mis ejercicios, de alguna asignatura especifica, dentro de src/pages, se encuentran las carpetas con los nombres de las asignaturas, y dentro de estas las carpetas estaran los ejercicios realizados.
 
 
-- To access the phpMyAdmin interface, go to `http://localhost:8081` in your browser.
 
 
-- It's recommended to use a `.env` file to store your application's environment variables. You can use the `.env` file provided in this repository as a template. The `docker-compose.yml` file will automatically detect it.
 
 
-- The current setup sets the root directory to `/var/www/html` inside the container, with the document root at `/var/www/html/public`. You can change this in the `docker-compose.yml` file if needed.
 
 
----
-
-Happy coding! ✨
