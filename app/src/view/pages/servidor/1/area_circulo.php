@@ -1,6 +1,6 @@
 <?php
 $titulo = 'Homepage';
-include __DIR__ . '/../../layouts/__header.php';
+include __DIR__ . '/../../../layouts/__header.php';
 
 function calcularAreaCirculo($radio): float|int
 {
@@ -25,5 +25,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2> El área del círculo es: <?php echo number_format($area, 2); ?> </h2>
 <?php endif; ?>
 
-<?php include __DIR__ . '/../../layouts/__footer.php'; ?>
+<?php include __DIR__ . '/../../../layouts/__footer.php'; ?>
 

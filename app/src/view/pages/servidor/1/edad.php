@@ -1,6 +1,6 @@
 <?php
 $title = 'Eres mayor de edad?';
-require __DIR__ . '/../../layouts/__header.php';
+require __DIR__ . '/../../../layouts/__header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $edad = (int) $_POST['edad'];
@@ -23,5 +23,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2> <?php echo htmlspecialchars($mensaje) ?></h2>
 <?php endif; ?>
 
-<?php require __DIR__ . '/../../layouts/__footer.php'; ?>
+<?php require __DIR__ . '/../../../layouts/__footer.php'; ?>
 

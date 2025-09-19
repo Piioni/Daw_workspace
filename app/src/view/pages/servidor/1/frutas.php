@@ -1,6 +1,6 @@
 <?php
 $title = "frutas y precios";
-require __DIR__ . '/../../layouts/__header.php';
+require __DIR__ . '/../../../layouts/__header.php';
 
 $frutas = [
     'Manzana' => 1.5,
@@ -26,4 +26,4 @@ $frutas = [
     </table>
 
 <?php
-require __DIR__ . '/../../layouts/__footer.php';
+require __DIR__ . '/../../../layouts/__footer.php';

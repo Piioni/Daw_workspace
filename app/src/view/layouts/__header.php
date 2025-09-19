@@ -12,7 +12,7 @@ $titulo = $titulo ?? 'Tal';
 <header>
     <nav>
         <a href="/">Home</a>
-        <a href="/1">Ejercicio 1</a>
-        <a href="/2">Ejercicio 2</a>
+        <a href="/servidor"> Servidor </a>
+        <a href="/cliente"> Cliente </a>
     </nav>
 </header>

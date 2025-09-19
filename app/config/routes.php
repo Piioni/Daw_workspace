@@ -9,21 +9,21 @@ return [
 
     'routes' => [
         // Public pages
-        '/' => ['view' => 'home_servidor.php', 'directory' => 'pages'],
-        '/homepage' => ['view' => 'home_servidor.php', 'directory' => 'pages'],
+        '/' => ['view' => '/homepage.php', 'directory' => 'pages'],
+        '/homepage' => ['view' => '/homepage.php', 'directory' => 'pages'],
 
         // SERVIDOR
-        '/servidor' => ['view' => '1/home.php', 'directory' => 'pages/servidor'],
-        '/servidor/1/area-circulo' => ['view' => '1/area_circulo.php', 'directory' => 'pages/servidor'],
-        '/servidor/1/edad' => ['view' => '1/edad.php', 'directory' => 'pages/servidor'],
-        '/servidor/1/frutas' => ['view' => '1/frutas.php', 'directory' => 'pages/servidor'],
-        '/servidor/1/archivo' => ['view' => '1/archivo.php', 'directory' => 'pages/servidor'],
+        '/servidor' => ['view' => '/home_servidor.php', 'directory' => 'pages/servidor'],
+        '/servidor/1/area-circulo' => ['view' => '/1/area_circulo.php', 'directory' => 'pages/servidor'],
+        '/servidor/1/edad' => ['view' => '/1/edad.php', 'directory' => 'pages/servidor'],
+        '/servidor/1/frutas' => ['view' => '/1/frutas.php', 'directory' => 'pages/servidor'],
+        '/servidor/1/archivo' => ['view' => '/1/archivo.php', 'directory' => 'pages/servidor'],
 
         // CLIENTE
-        '/cliente' => ['view' => '1/home.php', 'directory' => 'pages/cliente'],
+        '/cliente' => ['view' => '/home_cliente.php', 'directory' => 'pages/cliente'],
 
         // Error pages
-        '/404' => ['view' => '404.php', 'directory' => 'errors'],
+        '/404' => ['view' => '/404.php', 'directory' => 'errors'],
     ],
 
     'default_error_route' => '/404',
