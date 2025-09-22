@@ -3,11 +3,11 @@ $title = "frutas y precios";
 require __DIR__ . '/../../../layouts/__header.php';
 
 $frutas = [
-    'Manzana' => 1.5,
-    'Banana' => 0.75,
-    'Naranja' => 1.2,
-    'Uva' => 2.0,
-    'Mango' => 1.8
+        'Manzana' => 1.5,
+        'Banana' => 0.75,
+        'Naranja' => 1.2,
+        'Uva' => 2.0,
+        'Mango' => 1.8
 ];
 
 ?>

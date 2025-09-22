@@ -3,7 +3,7 @@ $title = 'Eres mayor de edad?';
 require __DIR__ . '/../../../layouts/__header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $edad = (int) $_POST['edad'];
+    $edad = (int)$_POST['edad'];
     if ($edad >= 18) {
         $mensaje = "Eres mayor de edad.";
     } else {
