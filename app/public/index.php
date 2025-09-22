@@ -1,69 +1,51 @@
 <?php
-$routeConfig = require __DIR__ . '/../config/routes.php';
-
 session_start();
 
-// Definir variable global para el directorio view
-$GLOBALS['VIEW_DIR'] = __DIR__ . '/../src/view';
+$routeConfig = require __DIR__ . '/../config/routes.php';
 
 class ViewRenderer
 {
     private array $config;
-    
+
     public function __construct(array $config)
     {
         $this->config = $config;
     }
-    
+
     public function render(string $route): void
     {
-        $routeInfo = $this->resolveRoute($route);
-        
+        $routeInfo = null;
+
+        if (isset($this->config['routes'][$route])) {
+            $routeInfo = $this->config['routes'][$route];
+        }
+
         if (!$routeInfo) {
             $this->renderErrorPage();
             return;
         }
-        
+
         $this->loadView($routeInfo['view'], $routeInfo['directory']);
     }
-    
-    private function resolveRoute(string $route): ?array
-    {
-        if (isset($this->config['routes'][$route])) {
-            $routeData = $this->config['routes'][$route];
-            
-            // Soporte para formato legacy (string directo)
-            if (is_string($routeData)) {
-                return [
-                    'view' => ltrim($routeData, '/'),
-                    'directory' => $this->config['default_directory']
-                ];
-            }
-            
-            // Formato nuevo (array con view y directory)
-            return $routeData;
-        }
-        
-        return null;
-    }
-    
+
     private function loadView(string $viewFile, string $directory): void
     {
         $viewPaths = $this->buildViewPaths($viewFile, $directory);
-        
+
         foreach ($viewPaths as $path) {
             if (file_exists($path)) {
-                // Asegurar que la variable global esté disponible en la vista
-                global $VIEW_DIR;
+                // Asegurar que las variables globales estén disponibles en la vista
+                global $VIEW_DIR, $PUBLIC_DIR;
                 $VIEW_DIR = $GLOBALS['VIEW_DIR'];
+                $PUBLIC_DIR = $GLOBALS['PUBLIC_DIR'];
                 include($path);
                 return;
             }
         }
-        
+
         throw new RuntimeException("Vista no encontrada: $viewFile en directorio: $directory");
     }
-    
+
     private function buildViewPaths(string $viewFile, string $directory): array
     {
         $baseDir = $this->config['view_dir'];
@@ -74,21 +56,19 @@ class ViewRenderer
 
         return $paths;
     }
-    
+
     private function renderErrorPage(): void
     {
         http_response_code(404);
-        
+
         try {
-            $errorRoute = $this->config['default_error_route'] ?? '/404';
-            $errorRouteInfo = $this->resolveRoute($errorRoute);
-            
-            if ($errorRouteInfo) {
-                $this->loadView($errorRouteInfo['view'], $errorRouteInfo['directory']);
+            if (isset($this->config['routes']['/404'])) {
+                $errorInfo = $this->config['routes']['/404'];
+                $this->loadView($errorInfo['view'], $errorInfo['directory']);
             } else {
-                echo "Error 404: Página no encontrada";
+                echo "Página no encontrada y no se pudo cargar la página de error.";
             }
-        } catch (RuntimeException $e) {
+        } catch (RuntimeException) {
             echo "Error del servidor: No se puede cargar la página de error";
         }
     }
