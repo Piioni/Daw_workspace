@@ -12,11 +12,9 @@ return [
 
         // SERVIDOR
         '/servidor' => ['view' => '/home_servidor.php', 'directory' => '/pages/servidor'],
-        // 1
-        '/servidor/1/area-circulo' => ['view' => '/area_circulo.php', 'directory' => '/pages/servidor/1'],
-        '/servidor/1/edad' => ['view' => '/edad.php', 'directory' => '/pages/servidor/1'],
-        '/servidor/1/frutas' => ['view' => '/frutas.php', 'directory' => '/pages/servidor/1'],
-        '/servidor/1/archivo' => ['view' => '/archivo.php', 'directory' => '/pages/servidor/1'],
+        // Unidad 1
+        '/servidor/1/php' => ['view' => '/php.php', 'directory' => '/pages/servidor/unidad_1/1'],
+        '/servidor/1/errores' => ['view' => '/errores.php', 'directory' => '/pages/servidor/unidad_1/3'],
 
         // CLIENTE
         '/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],
