@@ -21,16 +21,18 @@ return [
         // CLIENTE
         '/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],
         // 1
-        '/cliente/1/guess_number' => ['view' => '/guess_number.php', 'directory' => '/pages/cliente/1'],
-        '/cliente/1/area_rectangulo' => ['view' => '/area_rectangulo.php', 'directory' => '/pages/cliente/1'],
-        '/cliente/1/conversor_grados' => ['view' => '/conversor_grados.php', 'directory' => '/pages/cliente/1'],
+        '/cliente/1/guess_number' => ['view' => '/guess_number.php', 'directory' => '/pages/cliente/unidad_1/1'],
+        '/cliente/1/area_rectangulo' => ['view' => '/area_rectangulo.php', 'directory' => '/pages/cliente/unidad_1/1'],
+        '/cliente/1/conversor_grados' => ['view' => '/conversor_grados.php', 'directory' => '/pages/cliente/unidad_1/1'],
+        // 2
+        '/cliente/2/navegadores' => ['view' => '/navegadores.php', 'directory' => '/pages/cliente/unidad_1/2'],
         // 3
-        '/cliente/3/fecha' => ['view' => '/fecha.php', 'directory' => '/pages/cliente/3'],
-        '/cliente/3/textoColorido' => ['view' => '/textoColorido.php', 'directory' => '/pages/cliente/3'],
-        '/cliente/3/multiply' => ['view' => '/multiply.php', 'directory' => '/pages/cliente/3'],
-        '/cliente/3/imagen' => ['view' => '/imagen.php', 'directory' => '/pages/cliente/3'],
+        '/cliente/3/fecha' => ['view' => '/fecha.php', 'directory' => '/pages/cliente/unidad_1/3'],
+        '/cliente/3/textoColorido' => ['view' => '/textoColorido.php', 'directory' => '/pages/cliente/unidad_1/3'],
+        '/cliente/3/multiply' => ['view' => '/multiply.php', 'directory' => '/pages/cliente/unidad_1/3'],
+        '/cliente/3/imagen' => ['view' => '/imagen.php', 'directory' => '/pages/cliente/unidad_1/3'],
         // 4
-        '/cliente/4/loaded' => ['view' => '/loaded.php', 'directory' => '/pages/cliente/4'],
+        '/cliente/4/loaded' => ['view' => '/loaded.php', 'directory' => '/pages/cliente/unidad_1/4'],
 
         // Error pages
         '/404' => ['view' => '/404.php', 'directory' => '/pages/errors'],

@@ -45,7 +45,7 @@ include $VIEW_DIR . '/layouts/__header.php';
 <p id="dateTime"></p>
 <br>
 
-<h2> 8. Habilitar boton al cargarse la ventana </h2>
+<h2> 8. Habilitar botón al cargarse la ventana </h2>
 <p> Seguramente siempre este habilitado, no es que se demore mucho en cargar la verdad</p>
 <button id="enabledButton" disabled > I dont do anything, lmao </button>
 
@@ -97,7 +97,9 @@ include $VIEW_DIR . '/layouts/__header.php';
         hideTextButton.addEventListener('click', () => {
             textToHide.style.display = 'none';
         })
-
-
     });
+
 </script>
+
+<?php
+include $VIEW_DIR . '/layouts/__footer.php';
