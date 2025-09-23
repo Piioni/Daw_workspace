@@ -29,6 +29,8 @@ return [
         '/cliente/3/textoColorido' => ['view' => '/textoColorido.php', 'directory' => '/pages/cliente/3'],
         '/cliente/3/multiply' => ['view' => '/multiply.php', 'directory' => '/pages/cliente/3'],
         '/cliente/3/imagen' => ['view' => '/imagen.php', 'directory' => '/pages/cliente/3'],
+        // 4
+        '/cliente/4/loaded' => ['view' => '/loaded.php', 'directory' => '/pages/cliente/4'],
 
         // Error pages
         '/404' => ['view' => '/404.php', 'directory' => '/pages/errors'],

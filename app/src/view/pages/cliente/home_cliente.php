@@ -23,6 +23,10 @@ include $VIEW_DIR . '/layouts/__header.php';
         <li><a href="/cliente/3/imagen"> Ejercicio 4: Cambiar una imagen con un botón. </a></li>
     </ul>
 
+    <h2> Ejercicios #4 </h2>
+    <ul>
+        <li><a href="/cliente/4/loaded"> Ejercicios: Relacionados a windows on load y getElementById. </a></li>
+
 <?php
 include $VIEW_DIR . '/layouts/__footer.php';
 ?>
