@@ -13,6 +13,7 @@ return [
         // SERVIDOR
         '/servidor' => ['view' => '/home_servidor.php', 'directory' => '/pages/servidor'],
         // Unidad 1
+        '/servidor/1/tarea' => ['view' => '/to-do_list.php', 'directory' => '/pages/servidor/unidad_1/tarea'],
         '/servidor/1/php' => ['view' => '/php.php', 'directory' => '/pages/servidor/unidad_1/1'],
         '/servidor/1/errores' => ['view' => '/errores.php', 'directory' => '/pages/servidor/unidad_1/3'],
 

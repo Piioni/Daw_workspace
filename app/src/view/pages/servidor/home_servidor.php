@@ -9,8 +9,8 @@ include $VIEW_DIR . '/layouts/__header.php';
 <p>Esta es la página principal de servidor, donde se podra navegar a todos los ejercicios de la asignatura.</p>
 <p>Los ejercicios de servidor son los siguientes:</p>
 <ul>
+    <li><a href="/servidor/1/tarea"> Ejercicios de tarea: To-do list.</a></li>
     <li><a href="/servidor/1/php">Primeros ejercicios</a></li>
-
 </ul>
 
 <?php

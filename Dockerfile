@@ -8,6 +8,7 @@ RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 # Habilitar mod_rewrite de Apache
 RUN a2enmod rewrite
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Copiar configuración personalizada de Apache y php
 COPY docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
