@@ -3,8 +3,83 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+    :root {
+        --color-bg-primary: #f5f4ed;
+        --color-bg-secondary: #efeee6;
+        --color-border: #e0dfcc;
+        --color-hover: #d9d7c7;
+        --color-accent: #8b8464;
+        --color-text-primary: #4a4936;
+        --color-text-secondary: #6b6654;
+        --color-text-heading: #3a3625;
+    }
+
+    .dark {
+        --color-bg-primary: rgb(15 23 42); /* slate-900 */
+        --color-bg-secondary: rgb(30 41 59); /* slate-800 */
+        --color-border: rgb(51 65 85); /* slate-700 */
+        --color-hover: rgb(51 65 85); /* slate-700 */
+        --color-accent: rgb(37 99 235); /* blue-600 */
+        --color-text-primary: rgb(248 250 252); /* slate-100 */
+        --color-text-secondary: rgb(203 213 225); /* slate-300 */
+        --color-text-heading: rgb(248 250 252); /* slate-100 */
+    }
+
     body {
         font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
     }
 }
 
+@layer components {
+    .nav-container {
+        @apply shadow-lg;
+        background-color: var(--color-bg-secondary);
+        border-color: var(--color-border);
+    }
+
+    .nav-link {
+        @apply block py-2 px-3 rounded transition-colors;
+        color: var(--color-text-secondary);
+    }
+
+    .nav-link:hover {
+        background-color: var(--color-hover);
+        color: var(--color-text-heading);
+    }
+
+    .nav-link.active {
+        background-color: var(--color-accent);
+        color: white;
+    }
+
+    .card {
+        background-color: var(--color-bg-secondary);
+        border-color: var(--color-border);
+    }
+
+    .text-primary {
+        color: var(--color-text-primary);
+    }
+
+    .text-secondary {
+        color: var(--color-text-secondary);
+    }
+
+    .text-heading {
+        color: var(--color-text-heading);
+    }
+
+    .bg-primary {
+        background-color: var(--color-bg-primary);
+    }
+
+    .bg-secondary {
+        background-color: var(--color-bg-secondary);
+    }
+
+    .border-custom {
+        border-color: var(--color-border);
+    }
+}
