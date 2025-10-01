@@ -1,7 +1,7 @@
 <?php
 $titulo = 'Homepage Servidor';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 <h1>Homepage Servidor</h1>
@@ -14,5 +14,5 @@ include $VIEW_DIR . '/layouts/__header.php';
 </ul>
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 ?>

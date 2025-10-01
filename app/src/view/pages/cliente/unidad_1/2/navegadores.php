@@ -1,7 +1,7 @@
 <?php
 $title = 'Navegadores Web';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
     <h1>Navegadores Web</h1>
     <h2> 1. Tabla comparativa entre varios navegadores: </h2>
@@ -305,5 +305,5 @@ include $VIEW_DIR . '/layouts/__header.php';
         }
     </style>
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 

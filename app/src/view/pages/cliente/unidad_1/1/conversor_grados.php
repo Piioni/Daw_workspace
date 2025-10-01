@@ -1,7 +1,7 @@
 <?php
 $title = 'Conversor de grados';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 <h1> Conversor de grados </h1>

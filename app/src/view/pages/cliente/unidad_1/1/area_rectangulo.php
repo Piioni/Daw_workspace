@@ -1,7 +1,7 @@
 <?php
 $title = 'Rectangle area';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 <h1> Quieres calcular el area de un rectangulo huh?, nada yo te ayudo </h1>
 

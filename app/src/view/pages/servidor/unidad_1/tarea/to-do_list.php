@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $title = 'To-Do List';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
     <h1>Lista de tareas pendientes:</h1>
@@ -53,5 +53,5 @@ include $VIEW_DIR . '/layouts/__header.php';
     </form>
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 ?>D

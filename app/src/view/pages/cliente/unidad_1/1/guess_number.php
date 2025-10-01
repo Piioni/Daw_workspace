@@ -1,7 +1,7 @@
 <?php
 $title = 'Number Guessing Game';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 <h1> Adivina mi numero!!!</h1>

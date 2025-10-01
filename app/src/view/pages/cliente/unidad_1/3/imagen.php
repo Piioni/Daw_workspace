@@ -2,7 +2,7 @@
 $title = 'Cambiar imagen con un boton';
 global $VIEW_DIR;
 global $PUBLIC_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
     <h1 class="text-center">Cambiar imagen con un botón</h1>
@@ -34,5 +34,5 @@ include $VIEW_DIR . '/layouts/__header.php';
     </script>
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 ?>

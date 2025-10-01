@@ -1,7 +1,7 @@
 <?php
 $title = 'Homepage';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 <h1>Fecha y hora actual</h1>
@@ -17,5 +17,5 @@ include $VIEW_DIR . '/layouts/__header.php';
 </script>
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 ?>
