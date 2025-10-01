@@ -2,84 +2,73 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+    --font-monofamily: 'Consolas', 'Monaco', 'Courier New', monospace;
+
+    --color-primary: #f5f4ed;
+    --color-secondary: #efeee6;
+    --color-border: #e0dfcc;
+    --color-hover: #d9d7c7;
+    --color-accent: #8b8464;
+    --color-text-primary: #4a4936;
+    --color-text-secondary: #6b6654;
+    --color-text-heading: #3a3625;
+
+    --color-primary-dark: rgb(15 23 42);
+    --color-secondary-dark: rgb(30 41 59);
+    --color-border-dark: rgb(51 65 85);
+    --color-hover-dark: rgb(51 65 85);
+    --color-accent-dark: rgb(37 99 235);
+    --color-text-primary-dark: rgb(248 250 252);
+    --color-text-secondary-dark: rgb(203 213 225);
+    --color-text-heading-dark: rgb(248 250 252);
+}
+
 @layer base {
-    :root {
-        --color-bg-primary: #f5f4ed;
-        --color-bg-secondary: #efeee6;
-        --color-border: #e0dfcc;
-        --color-hover: #d9d7c7;
-        --color-accent: #8b8464;
-        --color-text-primary: #4a4936;
-        --color-text-secondary: #6b6654;
-        --color-text-heading: #3a3625;
-    }
-
-    .dark {
-        --color-bg-primary: rgb(15 23 42); /* slate-900 */
-        --color-bg-secondary: rgb(30 41 59); /* slate-800 */
-        --color-border: rgb(51 65 85); /* slate-700 */
-        --color-hover: rgb(51 65 85); /* slate-700 */
-        --color-accent: rgb(37 99 235); /* blue-600 */
-        --color-text-primary: rgb(248 250 252); /* slate-100 */
-        --color-text-secondary: rgb(203 213 225); /* slate-300 */
-        --color-text-heading: rgb(248 250 252); /* slate-100 */
-    }
-
     body {
-        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-        background-color: var(--color-bg-primary);
-        color: var(--color-text-primary);
+        @apply font-monofamily;
+        @apply bg-primary text-text-primary;
+        @apply dark:bg-primary-dark dark:text-text-primary-dark;
     }
 }
 
 @layer components {
     .nav-container {
-        @apply shadow-lg;
-        background-color: var(--color-bg-secondary);
-        border-color: var(--color-border);
+        @apply shadow-lg bg-secondary border-border;
+        @apply dark:bg-secondary-dark dark:border-border-dark;
     }
 
     .nav-link {
-        @apply block py-2 px-3 rounded transition-colors;
-        color: var(--color-text-secondary);
+        @apply block py-2 px-3 rounded transition-colors text-text-secondary;
+        @apply dark:text-text-secondary-dark;
     }
 
     .nav-link:hover {
-        background-color: var(--color-hover);
-        color: var(--color-text-heading);
+        @apply bg-hover text-text-heading;
+        @apply dark:bg-hover-dark dark:text-text-heading-dark;
     }
 
     .nav-link.active {
-        background-color: var(--color-accent);
-        color: white;
+        @apply bg-accent text-white;
+        @apply dark:bg-accent-dark;
     }
 
     .card {
-        background-color: var(--color-bg-secondary);
-        border-color: var(--color-border);
+        @apply bg-secondary border-border;
+        @apply dark:bg-secondary-dark dark:border-border-dark;
     }
+}
 
+@layer utilities {
     .text-primary {
-        color: var(--color-text-primary);
+        @apply text-text-primary dark:text-text-primary-dark;
     }
 
     .text-secondary {
-        color: var(--color-text-secondary);
+        @apply text-text-secondary dark:text-text-secondary-dark;
     }
 
     .text-heading {
-        color: var(--color-text-heading);
-    }
-
-    .bg-primary {
-        background-color: var(--color-bg-primary);
-    }
-
-    .bg-secondary {
-        background-color: var(--color-bg-secondary);
-    }
-
-    .border-custom {
-        border-color: var(--color-border);
+        @apply text-text-heading dark:text-text-heading-dark;
     }
 }

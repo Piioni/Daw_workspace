@@ -16,21 +16,21 @@ $title = $title ?? 'Tal';
         <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center space-x-3">
                 <img src="/assets/images/cat.jpg" class="h-8 rounded-full" alt="Piioni Logo"/>
-                <span class="text-2xl font-semibold" style="color: var(--color-text-primary);">Daw 25/26</span>
+                <span class="text-2xl font-semibold text-primary">Daw 25/26</span>
             </a>
             <div class="hidden md:flex items-center space-x-8" id="navbar-default">
                 <ul class="flex space-x-8">
                     <li>
                         <a href="/"
-                           class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?>" <?php echo isCurrentUrl('/') ? 'aria-current="page"' : ''; ?>>Home</a>
+                           class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?> ">Home</a>
                     </li>
                     <li>
                         <a href="/cliente"
-                           class="nav-link <?php echo isCurrentUrl('/cliente') ? 'active' : ''; ?>" <?php echo isCurrentUrl('/cliente') ? 'aria-current="page"' : ''; ?>>Cliente</a>
+                           class="nav-link <?php echo isCurrentUrl('/cliente') ? 'active' : ''; ?>">Cliente</a>
                     </li>
                     <li>
                         <a href="/servidor"
-                           class="nav-link <?php echo isCurrentUrl('/servidor') ? 'active' : ''; ?>" <?php echo isCurrentUrl('/servidor') ? 'aria-current="page"' : ''; ?>>Servidor</a>
+                           class="nav-link <?php echo isCurrentUrl('/servidor') ? 'active' : ''; ?>">Servidor</a>
                     </li>
                 </ul>
                 <div>

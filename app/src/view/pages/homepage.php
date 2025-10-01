@@ -11,7 +11,7 @@ include $VIEW_DIR . '/partials/__header.php';
             <p>La fr fr homepage, en donde se verán todas las asignaturas m novedades etc </p>
         </div>
 
-        <div class="card p-6 rounded-lg border border-custom w-11/12 max-w-md">
+        <div class="bg- card p-6 rounded-lg border border-custom w-11/12 max-w-md">
             <h2 class="text-xl font-semibold mb-4 text-heading">Información del estudiante:</h2>
             <ul class="text-secondary">
                 <li>Nombre: Juan Rangel</li>
