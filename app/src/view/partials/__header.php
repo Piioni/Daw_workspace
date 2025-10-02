@@ -32,6 +32,10 @@ $title = $title ?? 'Tal';
                         <a href="/servidor"
                            class="nav-link <?php echo isCurrentUrl('/servidor') ? 'active' : ''; ?>">Servidor</a>
                     </li>
+                    <li>
+                        <a href="/diseno"
+                           class="nav-link <?php echo isCurrentUrl('/diseno') ? 'active' : ''; ?>">Diseno</a>
+                    </li>
                 </ul>
                 <div>
                     <button id="theme-toggle" type="button"
