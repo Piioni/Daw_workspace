@@ -1,7 +1,7 @@
 <?php
 $titulo = 'Homepage';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 
 function calcularAreaCirculo($radio): float|int
 {
@@ -99,4 +99,4 @@ if ($archivo) {
 }
 ?>
 
-<?php include __DIR__ . '/../../../../layouts/__footer.php'; ?>
+<?php include __DIR__ . '/../../../../partials/__footer.php'; ?>

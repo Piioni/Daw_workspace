@@ -27,6 +27,11 @@ return [
         '/cliente/1/loaded' => ['view' => '/loaded.php', 'directory' => '/pages/cliente/unidad_1/4'],
 
 
+        // DISEÑO
+        '/diseno' => ['view' => '/home_diseno.php', 'directory' => '/pages/diseno'],
+        // Unidad 1
+        '/diseno/1/form' => ['view' => '/form.php', 'directory' => '/pages/diseno/unidad_1'],
+
         // Error pages
         '/404' => ['view' => '/404.php', 'directory' => '/pages/errors'],
     ]

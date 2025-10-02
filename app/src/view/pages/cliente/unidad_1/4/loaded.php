@@ -1,7 +1,7 @@
 <?php
 $title = 'Cambiar texto de un párrafo';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 <h2> 1. Cambiar el texto de un párrafo </h2>
@@ -102,4 +102,4 @@ include $VIEW_DIR . '/layouts/__header.php';
 </script>
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';

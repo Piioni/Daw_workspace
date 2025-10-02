@@ -1,7 +1,7 @@
 <?php
 $title = '.htaccess';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 
@@ -9,5 +9,5 @@ include $VIEW_DIR . '/layouts/__header.php';
 
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 ?>

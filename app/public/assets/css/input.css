@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-monofamily: 'Consolas', 'Monaco', 'Courier New', monospace;
+
+    --color-primary: #f5f4ed;
+    --color-secondary: #efeee6;
+    --color-border: #e0dfcc;
+    --color-hover: #d9d7c7;
+    --color-accent: #8b8464;
+    --color-text-primary: #4a4936;
+    --color-text-secondary: #6b6654;
+    --color-text-heading: #3a3625;
+
+    --color-primary-dark: rgb(15 23 42);
+    --color-secondary-dark: rgb(30 41 59);
+    --color-border-dark: rgb(51 65 85);
+    --color-hover-dark: rgb(51 65 85);
+    --color-accent-dark: rgb(37 99 235);
+    --color-text-primary-dark: rgb(248 250 252);
+    --color-text-secondary-dark: rgb(203 213 225);
+    --color-text-heading-dark: rgb(248 250 252);
+}
+
+@layer base {
+    body {
+        @apply font-monofamily;
+        @apply bg-primary text-text-primary;
+        @apply dark:bg-primary-dark dark:text-text-primary-dark;
+    }
+}
+
+@layer components {
+    .nav-container {
+        @apply shadow-lg bg-secondary border-border;
+        @apply dark:bg-secondary-dark dark:border-border-dark;
+    }
+
+    .nav-link {
+        @apply block py-2 px-3 rounded transition-colors text-text-secondary;
+        @apply dark:text-text-secondary-dark;
+    }
+
+    .nav-link:hover {
+        @apply bg-hover text-text-heading;
+        @apply dark:bg-hover-dark dark:text-text-heading-dark;
+    }
+
+    .nav-link.active {
+        @apply bg-accent text-white;
+        @apply dark:bg-accent-dark;
+    }
+
+    .card {
+        @apply bg-secondary border-border;
+        @apply dark:bg-secondary-dark dark:border-border-dark;
+    }
+
+    .form-input {
+        @apply block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-accent dark:focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0 transition-colors duration-200;
+    }
+
+    .form-label {
+        @apply block text-sm font-semibold text-gray-700 dark:text-gray-200;
+    }
+
+    .form-checkbox {
+        @apply h-5 w-5 flex-shrink-0 rounded border-gray-300 dark:border-gray-600 text-accent dark:text-blue-500 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0;
+    }
+
+    .form-radio {
+        @apply h-4 w-4 text-accent dark:text-blue-600 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400;
+    }
+}
+
+@layer utilities {
+    .text-primary {
+        @apply text-text-primary dark:text-text-primary-dark;
+    }
+
+    .text-secondary {
+        @apply text-text-secondary dark:text-text-secondary-dark;
+    }
+
+    .text-heading {
+        @apply text-text-heading dark:text-text-heading-dark;
+    }
+}
