@@ -29,10 +29,12 @@
         @apply font-monofamily;
         @apply bg-primary text-text-primary;
         @apply dark:bg-primary-dark dark:text-text-primary-dark;
+        @apply accent-accent dark:accent-accent-dark;
     }
 }
 
 @layer components {
+    /* Navigation components */
     .nav-container {
         @apply shadow-lg bg-secondary border-border;
         @apply dark:bg-secondary-dark dark:border-border-dark;
@@ -53,13 +55,9 @@
         @apply dark:bg-accent-dark;
     }
 
-    .card {
-        @apply bg-secondary border-border;
-        @apply dark:bg-secondary-dark dark:border-border-dark;
-    }
-
+    /* Form components */
     .form-input {
-        @apply block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-accent dark:focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0 transition-colors duration-200;
+        @apply block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-accent dark:focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0 transition-colors duration-200;
     }
 
     .form-label {
@@ -67,11 +65,11 @@
     }
 
     .form-checkbox {
-        @apply h-5 w-5 flex-shrink-0 rounded border-gray-300 dark:border-gray-600 text-accent dark:text-blue-500 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0;
+        @apply h-5 w-5 flex-shrink-0 rounded dark:accent-accent-dark border-gray-300 dark:border-gray-600 text-accent dark:text-blue-500 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0;
     }
 
     .form-radio {
-        @apply h-4 w-4 text-accent dark:text-blue-600 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400;
+        @apply h-4 w-4 text-accent dark:accent-accent-dark dark:text-blue-600 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 ;
     }
 }
 
@@ -85,6 +83,10 @@
     }
 
     .text-heading {
-        @apply text-text-heading dark:text-text-heading-dark;
+        @apply text-text-heading dark:text-text-heading-dark dark:font-light;
+    }
+
+    .nav-internal-link {
+        @apply text-accent underline hover:text-accent/70 dark:text-accent-dark dark:hover:text-accent-dark/70 transition-colors;
     }
 }

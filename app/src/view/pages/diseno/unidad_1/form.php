@@ -6,11 +6,10 @@ require $VIEW_DIR . '/partials/__header.php';
 
 <div class="mx-auto p-10 min-h-screen flex justify-center">
     <div class="w-full max-w-2xl">
-        <h1 class="text-heading text-4xl font-bold text-center mb-8">
-            Formulario de Registro
-        </h1>
-
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-8">
+        <div class="bg-neutral-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-8">
+            <h1 class="text-heading text-4xl font-semibold text-center mb-10 p-4">
+                Formulario de Registro
+            </h1>
             <form method="GET" action="" class="space-y-6">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div class="space-y-2">
@@ -32,7 +31,7 @@ require $VIEW_DIR . '/partials/__header.php';
                     <label class="form-label">
                         Género <span class="text-red-500">*</span>
                     </label>
-                    <div class="flex space-x-6">
+                    <div class="flex space-x-8">
                         <div class="flex items-center">
                             <input type="radio" id="hombre" name="genero" value="hombre" required class="form-radio">
                             <label for="hombre" class="ml-2 text-md font-medium text-gray-700 dark:text-gray-300">

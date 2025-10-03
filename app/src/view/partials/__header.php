@@ -7,10 +7,10 @@ $title = $title ?? 'Tal';
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($title) ?></title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/output.css">
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 <header>
     <nav class="nav-container border-b">
         <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
@@ -18,12 +18,9 @@ $title = $title ?? 'Tal';
                 <img src="/assets/images/cat.jpg" class="h-8 rounded-full" alt="Piioni Logo"/>
                 <span class="text-2xl font-semibold text-primary">Daw 25/26</span>
             </a>
-            <div class="hidden md:flex items-center space-x-8" id="navbar-default">
-                <ul class="flex space-x-8">
-                    <li>
-                        <a href="/"
-                           class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?> ">Home</a>
-                    </li>
+            <div class="hidden md:flex items-center space-x-10" id="navbar-default">
+                <a href="/" class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?> ">Home</a>
+                <ul class="flex space-x-4">
                     <li>
                         <a href="/cliente"
                            class="nav-link <?php echo isCurrentUrl('/cliente') ? 'active' : ''; ?>">Cliente</a>
@@ -34,7 +31,7 @@ $title = $title ?? 'Tal';
                     </li>
                     <li>
                         <a href="/diseno"
-                           class="nav-link <?php echo isCurrentUrl('/diseno') ? 'active' : ''; ?>">Diseno</a>
+                           class="nav-link <?php echo isCurrentUrl('/diseno') ? 'active' : ''; ?>">Diseño</a>
                     </li>
                 </ul>
                 <div>
@@ -62,40 +59,4 @@ $title = $title ?? 'Tal';
     </nav>
 </header>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        // Verificar preferencia guardada o del sistema
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-
-        // Aplicar tema inicial
-        if (isDark) {
-            document.documentElement.classList.add('dark');
-            themeToggleLightIcon.classList.remove('hidden');
-            themeToggleDarkIcon.classList.add('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            themeToggleDarkIcon.classList.remove('hidden');
-            themeToggleLightIcon.classList.add('hidden');
-        }
-
-        // Manejar click del botón
-        themeToggleBtn.addEventListener('click', function () {
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-    });
-</script>
+<script src="/assets/js/theme-toggler.js"></script>
