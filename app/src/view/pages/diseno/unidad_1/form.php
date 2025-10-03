@@ -57,7 +57,8 @@ require $VIEW_DIR . '/partials/__header.php';
                 <div class="space-y-4">
                     <div class="flex items-start space-x-3">
                         <input type="checkbox" id="informacion" name="informacion" class="form-checkbox mt-0.5" checked>
-                        <label for="informacion" class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+                        <label for="informacion"
+                               class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
                             Deseo recibir información sobre novedades y ofertas
                         </label>
                     </div>
@@ -73,7 +74,7 @@ require $VIEW_DIR . '/partials/__header.php';
 
                 <div class="pt-6">
                     <button type="submit"
-                            class="w-full inline-flex justify-center items-center rounded-lg bg-accent dark:bg-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-hover dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-colors duration-200">
+                            class="btn-form">
                         Enviar Formulario
                     </button>
                 </div>

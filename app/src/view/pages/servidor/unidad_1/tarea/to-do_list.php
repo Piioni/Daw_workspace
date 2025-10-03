@@ -31,26 +31,26 @@ global $VIEW_DIR;
 include $VIEW_DIR . '/partials/__header.php';
 ?>
 
-    <h1>Lista de tareas pendientes:</h1>
-    <p>Aquí puedes gestionar tus tareas pendientes. Añade nuevas tareas, márcalas como completadas o elimínalas cuando
-        ya no las necesites.</p>
-    <ul id="task-list">
-        <?php foreach ($tasks as $i => $task): ?>
-            <li>
-                <?php echo $task; ?>
-                <form method="post" style="display:inline;" onsubmit="return confirm('¿Eliminar esta tarea?');">
-                    <input type="hidden" name="delete_task" value="<?php echo $i; ?>">
-                    <button type="submit">Eliminar</button>
-                </form>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+<h1>Lista de tareas pendientes:</h1>
+<p>Aquí puedes gestionar tus tareas pendientes. Añade nuevas tareas, márcalas como completadas o elimínalas cuando
+    ya no las necesites.</p>
+<ul id="task-list">
+    <?php foreach ($tasks as $i => $task): ?>
+        <li>
+            <?php echo $task; ?>
+            <form method="post" style="display:inline;" onsubmit="return confirm('¿Eliminar esta tarea?');">
+                <input type="hidden" name="delete_task" value="<?php echo $i; ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </li>
+    <?php endforeach; ?>
+</ul>
 
-    <form method="post" id="task-form">
-        <label for="new-task">Nueva tarea:</label>
-        <input type="text" id="new-task" name="new_task" placeholder="Nueva tarea" required>
-        <button type="submit">Añadir tarea</button>
-    </form>
+<form method="post" id="task-form">
+    <label for="new-task">Nueva tarea:</label>
+    <input type="text" id="new-task" name="new_task" placeholder="Nueva tarea" required>
+    <button type="submit">Añadir tarea</button>
+</form>
 
 <?php
 include $VIEW_DIR . '/partials/__footer.php';

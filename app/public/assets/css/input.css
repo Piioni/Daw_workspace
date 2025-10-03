@@ -14,8 +14,8 @@
     --color-text-secondary: #6b6654;
     --color-text-heading: #3a3625;
 
-    --color-primary-dark: rgb(15 23 42);
-    --color-secondary-dark: rgb(30 41 59);
+    --color-primary-dark: rgb(30 41 59);
+    --color-secondary-dark: rgb(23, 34, 59);
     --color-border-dark: rgb(51 65 85);
     --color-hover-dark: rgb(51 65 85);
     --color-accent-dark: rgb(37 99 235);
@@ -70,6 +70,10 @@
 
     .form-radio {
         @apply h-4 w-4 text-accent dark:accent-accent-dark dark:text-blue-600 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 ;
+    }
+
+    .btn-form {
+        @apply w-full inline-flex justify-center items-center rounded-lg bg-accent dark:bg-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-hover hover:text-accent dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-colors duration-200
     }
 }
 

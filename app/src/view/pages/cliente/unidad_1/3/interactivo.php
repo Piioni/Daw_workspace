@@ -37,8 +37,12 @@ include $VIEW_DIR . '/layouts/__header.php';
 <p> En este ejercicio se cambiará el color de un párrafo presionando un botón.</p>
 <p> El color se seleccionará de forma aleatoria de una lista de colores predefinidos.</p>
 
-<p id="texto"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut massa sed diam viverra imperdiet sit amet vitae magna. Pellentesque porta laoreet accumsan. Suspendisse luctus justo urna. Maecenas egestas leo eu commodo tincidunt. Integer velit augue, sagittis eu massa quis, fringilla venenatis purus. Praesent nec feugiat purus, bibendum consectetur libero. Aenean maximus lobortis libero. Aenean risus augue, tempor in convallis eget, lacinia condimentum ipsum. . </p>
-<button id="cambiarColorBtn"> Cambiar color </button>
+<p id="texto"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut massa sed diam viverra imperdiet sit amet
+    vitae magna. Pellentesque porta laoreet accumsan. Suspendisse luctus justo urna. Maecenas egestas leo eu commodo
+    tincidunt. Integer velit augue, sagittis eu massa quis, fringilla venenatis purus. Praesent nec feugiat purus,
+    bibendum consectetur libero. Aenean maximus lobortis libero. Aenean risus augue, tempor in convallis eget, lacinia
+    condimentum ipsum. . </p>
+<button id="cambiarColorBtn"> Cambiar color</button>
 
 
 <script>
@@ -54,7 +58,7 @@ include $VIEW_DIR . '/layouts/__header.php';
         };
         const fechaHoraFormateada = fechaHoraActual.toLocaleDateString('es-ES', opciones);
         const fechaHoraElemento = document.querySelector('#fecha_hora');
-        fechaHoraElemento.textContent = `Fecha y hora actual: ${fechaHoraFormateada }`;
+        fechaHoraElemento.textContent = `Fecha y hora actual: ${fechaHoraFormateada}`;
 
         const imagen1 = "/images/cat.jpg";
         const imagen2 = "/images/rammus.png";

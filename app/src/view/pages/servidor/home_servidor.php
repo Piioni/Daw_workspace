@@ -14,7 +14,8 @@ include $VIEW_DIR . '/partials/__header.php';
     <div class="flex mt-10 mx-20">
         <div class="bg-secondary border-border dark:bg-secondary-dark border dark:border-border-dark rounded-lg shadow-lg max-w-lg p-6">
             <h2 class="text-2xl font-semibold mb-4 text-heading">Unidad 1</h2>
-            <p class="mb-4 text-secondary">En esta unidad vimos conceptos básicos como variables, loops, arrays, funciones, métodos del servidor.</p>
+            <p class="mb-4 text-secondary">En esta unidad vimos conceptos básicos como variables, loops, arrays,
+                funciones, métodos del servidor.</p>
             <div>
                 <h3 class="text-xl font-semibold mb-2 text-heading">Ejercicios:</h3>
                 <ul class="list-disc list-inside text-secondary space-y-2">

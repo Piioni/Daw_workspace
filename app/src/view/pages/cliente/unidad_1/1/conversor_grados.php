@@ -63,17 +63,16 @@ include $VIEW_DIR . '/partials/__header.php';
     celsiusForm.addEventListener('submit', function (event) {
         event.preventDefault()
         const celsius = parseFloat(document.querySelector('#celsius').value);
-        const fahrenheit = (celsius * 9/5) + 32;
+        const fahrenheit = (celsius * 9 / 5) + 32;
         result.textContent = `${celsius} grados Celsius son ${fahrenheit.toFixed(2)} grados Fahrenheit.`;
     });
 
-    fahrenheitForm.addEventListener('submit', function(event) {
+    fahrenheitForm.addEventListener('submit', function (event) {
         event.preventDefault()
         const fahrenheit = parseFloat(document.querySelector('#fahrenheit').value);
-        const celsius = (fahrenheit - 32) * 5/9;
+        const celsius = (fahrenheit - 32) * 5 / 9;
         result.textContent = `${fahrenheit} grados Fahrenheit son ${celsius.toFixed(2)} grados Celsius.`;
     }
-
 
 
 </script>
