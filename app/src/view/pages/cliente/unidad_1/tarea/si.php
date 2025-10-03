@@ -1,7 +1,7 @@
 <?php
 $title = 'Ejercicios sueltos de cliente';
 global $VIEW_DIR;
-include $VIEW_DIR . '/layouts/__header.php';
+include $VIEW_DIR . '/partials/__header.php';
 ?>
 
 <h1>Nombre: Juan Rangel</h1>
@@ -19,7 +19,7 @@ include $VIEW_DIR . '/layouts/__header.php';
 </script>
 
 <?php
-include $VIEW_DIR . '/layouts/__footer.php';
+include $VIEW_DIR . '/partials/__footer.php';
 ?>
 
 

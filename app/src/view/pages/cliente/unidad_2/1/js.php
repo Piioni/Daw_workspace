@@ -50,7 +50,8 @@ include $VIEW_DIR . '/partials/__header.php';
                             </button>
                         </div>
                     </form>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;" id="container_comparacion">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;"
+                         id="container_comparacion">
                         <h4 class="font-semibold mb-3">Resultados de Comparación:</h4>
                         <div class="space-y-2 text-sm">
                             <p><strong>Número 1:</strong> <span id="num1_comp_display"></span></p>
@@ -91,7 +92,8 @@ include $VIEW_DIR . '/partials/__header.php';
                             </form>
                         </div>
                         <div>
-                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-6" style="display: none;" id="container_operaciones">
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-6" style="display: none;"
+                                 id="container_operaciones">
                                 <h4 class="font-semibold mb-3">Resultados Aritméticos:</h4>
                                 <div class="space-y-2 text-sm">
                                     <p><strong>Suma (+):</strong> <span id="suma_result"></span></p>
@@ -139,7 +141,8 @@ include $VIEW_DIR . '/partials/__header.php';
                                 <label for="password_logica" class="form-label">
                                     Contraseña <span class="text-red-500">*</span>
                                 </label>
-                                <input type="password" id="password_logica" name="password_logica" required class="form-input">
+                                <input type="password" id="password_logica" name="password_logica" required
+                                       class="form-input">
                                 <p class="text-xs text-secondary">Mínimo 8 caracteres</p>
                             </div>
                         </div>
@@ -149,7 +152,8 @@ include $VIEW_DIR . '/partials/__header.php';
                             </button>
                         </div>
                     </form>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;" id="container_logicos">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;"
+                         id="container_logicos">
                         <p>Edad válida (18-65): <span id="edad_valida_result"></span></p>
                         <p>Contraseña válida (≥8 chars): <span id="password_valida_result"></span></p>
                     </div>
@@ -163,14 +167,16 @@ include $VIEW_DIR . '/partials/__header.php';
                                 <label for="num1_bit" class="form-label">
                                     Número 1 <span class="text-red-500">*</span>
                                 </label>
-                                <input type="number" id="num1_bit" name="num1_bit" required class="form-input" min="0" max="255">
+                                <input type="number" id="num1_bit" name="num1_bit" required class="form-input" min="0"
+                                       max="255">
                             </div>
 
                             <div class="space-y-2">
                                 <label for="num2_bit" class="form-label">
                                     Número 2 <span class="text-red-500">*</span>
                                 </label>
-                                <input type="number" id="num2_bit" name="num2_bit" required class="form-input" min="0" max="255">
+                                <input type="number" id="num2_bit" name="num2_bit" required class="form-input" min="0"
+                                       max="255">
                             </div>
                         </div>
                         <div class="mt-4 flex justify-center">
@@ -179,17 +185,22 @@ include $VIEW_DIR . '/partials/__header.php';
                             </button>
                         </div>
                     </form>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;" id="container_bitwise">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;"
+                         id="container_bitwise">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <p>Número 1: <span id="num1_display"></span> (<span id="num1_binary"></span>)</p>
                                 <p>Número 2: <span id="num2_display"></span> (<span id="num2_binary"></span>)</p>
                             </div>
                             <div>
-                                <p>AND (&): <span id="and_result"></span> (<span id="and_binary"></span>) - 1 solo si ambos bits son 1</p>
-                                <p>OR (|): <span id="or_result"></span> (<span id="or_binary"></span>) - 1 si al menos un bit es 1</p>
-                                <p>XOR (^): <span id="xor_result"></span> (<span id="xor_binary"></span>) - 1 si los bits son diferentes</p>
-                                <p>NOT (~) <span id="not_num"></span>): <span id="not_result"></span> (<span id="not_binary"></span>) - Invierte todos los bits</p>
+                                <p>AND (&): <span id="and_result"></span> (<span id="and_binary"></span>) - 1 solo si
+                                    ambos bits son 1</p>
+                                <p>OR (|): <span id="or_result"></span> (<span id="or_binary"></span>) - 1 si al menos
+                                    un bit es 1</p>
+                                <p>XOR (^): <span id="xor_result"></span> (<span id="xor_binary"></span>) - 1 si los
+                                    bits son diferentes</p>
+                                <p>NOT (~) <span id="not_num"></span>): <span id="not_result"></span> (<span
+                                            id="not_binary"></span>) - Invierte todos los bits</p>
                             </div>
                         </div>
                     </div>
@@ -237,7 +248,8 @@ include $VIEW_DIR . '/partials/__header.php';
                             </button>
                         </div>
                     </form>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;" id="container_objetos">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;"
+                         id="container_objetos">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <h4 class="font-semibold mb-2">Objeto ANTES de delete:</h4>
@@ -290,18 +302,25 @@ include $VIEW_DIR . '/partials/__header.php';
                             </button>
                         </div>
                     </form>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;" id="container_precedencia">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-3" style="display: none;"
+                         id="container_precedencia">
                         <h4 class="font-semibold mb-3">Operaciones Aritméticas:</h4>
                         <div class="space-y-2 text-sm">
-                            <p>Sin paréntesis:< <span id="formula_sin_parentesis"></span> = <span id="resultado_sin_parentesis"></span></p>
-                            <p>Con paréntesis:< <span id="formula_parentesis1"></span> = <span id="resultado_parentesis1"></span></p>
-                            <p>Con paréntesis:< <span id="formula_parentesis2"></span> = <span id="resultado_parentesis2"></span></p>
-                            <p>Con paréntesis:< <span id="formula_parentesis3"></span> = <span id="resultado_parentesis3"></span></p>
+                            <p>Sin paréntesis:< <span id="formula_sin_parentesis"></span> = <span
+                                        id="resultado_sin_parentesis"></span></p>
+                            <p>Con paréntesis:< <span id="formula_parentesis1"></span> = <span
+                                        id="resultado_parentesis1"></span></p>
+                            <p>Con paréntesis:< <span id="formula_parentesis2"></span> = <span
+                                        id="resultado_parentesis2"></span></p>
+                            <p>Con paréntesis:< <span id="formula_parentesis3"></span> = <span
+                                        id="resultado_parentesis3"></span></p>
                         </div>
                         <h4 class="font-semibold mb-3 mt-4">Operaciones Booleanas:</h4>
                         <div class="space-y-2 text-sm">
-                            <p>Sin paréntesis:< <span id="formula_bool_sin"></span> = <span id="resultado_bool_sin"></span></p>
-                            <p>Con paréntesis:< <span id="formula_bool_con"></span> = <span id="resultado_bool_con"></span></p>
+                            <p>Sin paréntesis:< <span id="formula_bool_sin"></span> = <span
+                                        id="resultado_bool_sin"></span></p>
+                            <p>Con paréntesis:< <span id="formula_bool_con"></span> = <span
+                                        id="resultado_bool_con"></span></p>
                         </div>
                     </div>
                 </div>
@@ -460,7 +479,7 @@ include $VIEW_DIR . '/partials/__header.php';
             const ocupacion = document.querySelector('#ocupacion_obj').value;
             const propiedadEliminar = document.querySelector('#propiedad_eliminar').value;
 
-            const persona = { nombre, edad, ocupacion };
+            const persona = {nombre, edad, ocupacion};
             const personaAntes = JSON.stringify(persona, null, 2);
 
             delete persona[propiedadEliminar];

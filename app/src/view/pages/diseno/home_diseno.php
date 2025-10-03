@@ -12,7 +12,7 @@ require $VIEW_DIR . '/partials/__header.php';
         </div>
     </div>
     <div class="flex mt-10 mx-20">
-        <div class="bg-secondary border-border dark:bg-secondary-dark border dark:border-border-dark rounded-lg shadow-lg max-w-lg p-6">
+        <div class="unit-card max-w-lg">
             <h2 class="text-2xl font-semibold mb-4 text-heading">Unidad 1</h2>
             <p class="mb-4 text-secondary">Ejercicios sobre formularios, validación y estilos CSS.</p>
             <div>

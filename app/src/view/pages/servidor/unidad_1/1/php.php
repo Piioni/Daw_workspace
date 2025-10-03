@@ -5,33 +5,33 @@ include $VIEW_DIR . '/partials/__header.php';
 
 function calcularAreaCirculo($radio): float|int
 {
-    return pi() * pow($radio, 2);
+	return pi() * pow($radio, 2);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verifica si 'radio' está presente antes de usarla
-    if (isset($_POST['radio']) && $_POST['radio'] !== '') {
-        $radio = $_POST['radio'];
-        $area = calcularAreaCirculo($radio);
-    }
+	// Verifica si 'radio' está presente antes de usarla
+	if (isset($_POST['radio']) && $_POST['radio'] !== '') {
+		$radio = $_POST['radio'];
+		$area = calcularAreaCirculo($radio);
+	}
 
-    // Verifica si 'edad' está presente antes de usarla
-    if (isset($_POST['edad']) && $_POST['edad'] !== '') {
-        $edad = (int)$_POST['edad'];
-        if ($edad >= 18) {
-            $mensaje = "Eres mayor de edad.";
-        } else {
-            $mensaje = "Eres menor de edad. \n You cant drink lol";
-        }
-    }
+	// Verifica si 'edad' está presente antes de usarla
+	if (isset($_POST['edad']) && $_POST['edad'] !== '') {
+		$edad = (int)$_POST['edad'];
+		if ($edad >= 18) {
+			$mensaje = "Eres mayor de edad.";
+		} else {
+			$mensaje = "Eres menor de edad. \n You cant drink lol";
+		}
+	}
 }
 
 $frutas = [
-        'Manzana' => 1.5,
-        'Banana' => 0.75,
-        'Naranja' => 1.2,
-        'Uva' => 2.0,
-        'Mango' => 1.8
+	'Manzana' => 1.5,
+	'Banana' => 0.75,
+	'Naranja' => 1.2,
+	'Uva' => 2.0,
+	'Mango' => 1.8
 ];
 
 
@@ -59,12 +59,12 @@ $frutas = [
         <th>Fruta</th>
         <th>Precio (USD)</th>
     </tr>
-    <?php foreach ($frutas as $fruta => $precio) : ?>
-        <tr>
-            <td><?php echo htmlspecialchars($fruta); ?></td>
-            <td><?php echo number_format($precio, 2); ?></td>
-        </tr>
-    <?php endforeach; ?>
+	<?php foreach ($frutas as $fruta => $precio) : ?>
+      <tr>
+          <td><?php echo htmlspecialchars($fruta); ?></td>
+          <td><?php echo number_format($precio, 2); ?></td>
+      </tr>
+	<?php endforeach; ?>
 </table>
 
 <br><br>
@@ -87,15 +87,15 @@ $frutas = [
 $archivoPath = __DIR__ . '/datos.txt';
 $archivo = @fopen($archivoPath, 'r');
 if ($archivo) {
-    echo "<h2>Contenido del archivo datos.txt</h2>";
-    echo "<pre>";
-    while (($linea = fgets($archivo)) !== false) {
-        echo htmlspecialchars($linea);
-    }
-    echo "</pre>";
-    fclose($archivo);
+	echo "<h2>Contenido del archivo datos.txt</h2>";
+	echo "<pre>";
+	while (($linea = fgets($archivo)) !== false) {
+		echo htmlspecialchars($linea);
+	}
+	echo "</pre>";
+	fclose($archivo);
 } else {
-    echo "<p>No se pudo abrir el archivo.</p>";
+	echo "<p>No se pudo abrir el archivo.</p>";
 }
 ?>
 

@@ -2,28 +2,28 @@
 
 $task_file = __DIR__ . '/tasks.txt';
 if (!file_exists($task_file)) {
-    touch($task_file);
+	touch($task_file);
 }
 $tasks = file($task_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 // Add new task
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['new_task']) && trim($_POST['new_task']) !== '') {
-        $new_task = htmlspecialchars(trim($_POST['new_task']));
-        file_put_contents($task_file, $new_task . PHP_EOL, FILE_APPEND);
-        header('Location: ' . $_SERVER['REQUEST_URI']);
-        exit;
-    }
-    // Delete task
-    if (isset($_POST['delete_task'])) {
-        $delete_index = (int)$_POST['delete_task'];
-        if (isset($tasks[$delete_index])) {
-            unset($tasks[$delete_index]);
-            file_put_contents($task_file, implode(PHP_EOL, $tasks) . PHP_EOL);
-            header('Location: ' . $_SERVER['REQUEST_URI']);
-            exit;
-        }
-    }
+	if (isset($_POST['new_task']) && trim($_POST['new_task']) !== '') {
+		$new_task = htmlspecialchars(trim($_POST['new_task']));
+		file_put_contents($task_file, $new_task . PHP_EOL, FILE_APPEND);
+		header('Location: ' . $_SERVER['REQUEST_URI']);
+		exit;
+	}
+	// Delete task
+	if (isset($_POST['delete_task'])) {
+		$delete_index = (int)$_POST['delete_task'];
+		if (isset($tasks[$delete_index])) {
+			unset($tasks[$delete_index]);
+			file_put_contents($task_file, implode(PHP_EOL, $tasks) . PHP_EOL);
+			header('Location: ' . $_SERVER['REQUEST_URI']);
+			exit;
+		}
+	}
 }
 
 $title = 'To-Do List';
@@ -35,15 +35,15 @@ include $VIEW_DIR . '/partials/__header.php';
 <p>Aquí puedes gestionar tus tareas pendientes. Añade nuevas tareas, márcalas como completadas o elimínalas cuando
     ya no las necesites.</p>
 <ul id="task-list">
-    <?php foreach ($tasks as $i => $task): ?>
-        <li>
-            <?php echo $task; ?>
-            <form method="post" style="display:inline;" onsubmit="return confirm('¿Eliminar esta tarea?');">
-                <input type="hidden" name="delete_task" value="<?php echo $i; ?>">
-                <button type="submit">Eliminar</button>
-            </form>
-        </li>
-    <?php endforeach; ?>
+	<?php foreach ($tasks as $i => $task): ?>
+      <li>
+				<?php echo $task; ?>
+          <form method="post" style="display:inline;" onsubmit="return confirm('¿Eliminar esta tarea?');">
+              <input type="hidden" name="delete_task" value="<?php echo $i; ?>">
+              <button type="submit">Eliminar</button>
+          </form>
+      </li>
+	<?php endforeach; ?>
 </ul>
 
 <form method="post" id="task-form">
