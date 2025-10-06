@@ -26,7 +26,9 @@ return [
 		'/cliente/1/interactivo' => ['view' => '/interactivo.php', 'directory' => '/pages/cliente/unidad_1'],
 		'/cliente/1/loaded' => ['view' => '/loaded.php', 'directory' => '/pages/cliente/unidad_1'],
 		// Unidad 2
-		'/cliente/2/js' => ['view' => '/js.php', 'directory' => '/pages/cliente/unidad_2/1'],
+		'/cliente/2/js1' => ['view' => '/js1.php', 'directory' => '/pages/cliente/unidad_2/1'],
+		'/cliente/2/js2' => ['view' => '/js2.php', 'directory' => '/pages/cliente/unidad_2/2'],
+
 
 
 		// DISEÑO

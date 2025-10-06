@@ -59,8 +59,13 @@ include $VIEW_DIR . '/partials/__header.php';
                         <h3 class="text-xl font-semibold mb-2 text-heading">Ejercicios:</h3>
                         <ul class="list-disc list-inside text-secondary space-y-2">
                             <li>
-                                <a class="nav-internal-link" href="/cliente/2/js">
+                                <a class="nav-internal-link" href="/cliente/2/js1">
                                     Primeros ejercicios
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-internal-link" href="/cliente/2/js2">
+                                    Segundos ejercicios
                                 </a>
                             </li>
                         </ul>
