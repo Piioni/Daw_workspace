@@ -55,6 +55,12 @@
         @apply dark:bg-accent-dark;
     }
 
+    /* Card */
+    .card {
+        @apply bg-secondary border-border rounded-lg shadow-md p-6 flex flex-col h-full;
+        @apply dark:bg-secondary-dark dark:border-border-dark;
+    }
+
     /* Form components */
     .form-input {
         @apply block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-accent dark:focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-accent dark:focus:ring-blue-400 focus:ring-offset-0 transition-colors duration-200;

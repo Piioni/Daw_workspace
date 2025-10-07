@@ -54,4 +54,4 @@ include $VIEW_DIR . '/partials/__header.php';
 
 <?php
 include $VIEW_DIR . '/partials/__footer.php';
-?>D
+?>

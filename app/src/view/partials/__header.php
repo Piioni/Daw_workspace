@@ -1,5 +1,6 @@
 <?php
 $title = $title ?? 'Tal';
+$heading = $heading ?? 'Daw 25/26';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ $title = $title ?? 'Tal';
         <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center space-x-3">
                 <img src="/assets/images/cat.jpg" class="h-8 rounded-full" alt="Piioni Logo"/>
-                <span class="text-2xl font-semibold text-primary">Daw 25/26</span>
+                <span class="text-2xl font-semibold text-primary"> <?php echo $heading ?> </span>
             </a>
             <div class="hidden md:flex items-center space-x-10" id="navbar-default">
                 <a href="/" class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?> ">Home</a>

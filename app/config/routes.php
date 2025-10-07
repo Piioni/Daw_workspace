@@ -16,6 +16,8 @@ return [
 		'/servidor/1/tarea' => ['view' => '/to-do_list.php', 'directory' => '/pages/servidor/unidad_1/tarea'],
 		'/servidor/1/php' => ['view' => '/php.php', 'directory' => '/pages/servidor/unidad_1/1'],
 		'/servidor/1/errores' => ['view' => '/errores.php', 'directory' => '/pages/servidor/unidad_1/3'],
+		// Unidad 2
+		'/servidor/2/dinamic_web' => ['view' => '/dinamic_web.php', 'directory' => '/pages/servidor/unidad_2/1'],
 
 		// CLIENTE
 		'/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],
@@ -40,3 +42,4 @@ return [
 		'/404' => ['view' => '/404.php', 'directory' => '/pages/errors'],
 	]
 ];
+

@@ -27,7 +27,7 @@ Asegurarse de tener instalado.
    ```bash
    npm install
    ```
-3. Construir los archivos CSS de Tailwind:
+3. Si vas a trabajar con tailwindcss, ejecutar el siguiente comando para activar el compilador de CSS:
    ```bash
    npm run tailwind
    ```
