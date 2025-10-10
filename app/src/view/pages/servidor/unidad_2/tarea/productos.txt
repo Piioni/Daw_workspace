@@ -1,0 +1,5 @@
+producto1,200
+producto2,150
+producto3,300
+producto4,400
+producto5,250

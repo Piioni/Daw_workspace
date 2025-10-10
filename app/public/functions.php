@@ -3,7 +3,7 @@
 use JetBrains\PhpStorm\NoReturn;
 
 #[NoReturn]
-function dd($data)
+function dd($data): void
 {
 	echo '<pre>';
 	var_dump($data);
