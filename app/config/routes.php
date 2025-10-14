@@ -31,6 +31,9 @@ return [
         // Unidad 2
         '/cliente/2/js1' => ['view' => '/js1.php', 'directory' => '/pages/cliente/unidad_2/1'],
         '/cliente/2/js2' => ['view' => '/js2.php', 'directory' => '/pages/cliente/unidad_2/2'],
+        // Unidad 3
+        '/cliente/3/objetos' => ['view' => '/objetos.php', 'directory' => '/pages/cliente/unidad_3/1'],
+
 
 
         // DISEÑO

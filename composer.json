@@ -1,10 +1,11 @@
 {
   "autoload": {
     "psr-4": {
-      "controllers\\": "app/src/controllers/",
-      "model\\": "app/src/model/",
       "views\\": "app/src/view/",
       "config\\": "app/config/"
     }
+  },
+  "require-dev": {
+    "tightenco/duster": "^3.2"
   }
 }
