@@ -1,9 +1,13 @@
 {
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.13",
-    "tailwindcss": "^4.1.13"
-  },
-  "scripts": {
-    "tailwind": "npx @tailwindcss/cli -i ./app/public/assets/css/input.css -o ./app/public/assets/css/output.css --watch"
-  }
+    "scripts": {
+        "tailwind": "npx @tailwindcss/cli -i ./app/public/assets/css/input.css -o ./app/public/assets/css/output.css --watch",
+        "prettier": "npx prettier --write ./app/src/view"
+    },
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.1.13",
+        "tailwindcss": "^4.0.0",
+        "prettier": "^3.6.2",
+        "prettier-plugin-blade": "^2.1.21",
+        "prettier-plugin-tailwindcss": "^0.6.14"
+    }
 }

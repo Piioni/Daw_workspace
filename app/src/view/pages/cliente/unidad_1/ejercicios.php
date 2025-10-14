@@ -4,33 +4,37 @@ global $VIEW_DIR;
 include $VIEW_DIR . '/partials/__header.php';
 ?>
 
-<div class="w-full mb-15">
-    <div class="flex flex-col text-heading text-4xl font-semibold mt-10 py-2">
-        <div class="text-center text-primary">
+<div class="mb-15 w-full">
+    <div class="text-heading mt-10 flex flex-col py-2 text-4xl font-semibold">
+        <div class="text-primary text-center">
             <h1>Primeros Ejercicios de Cliente</h1>
         </div>
     </div>
-    <main class="flex flex-col mt-12 mx-8 gap-2">
-        <div class="bg-secondary border-border dark:bg-secondary-dark border dark:border-border-dark rounded-lg shadow-lg p-6 px-10 space-y-10">
+    <main class="mx-8 mt-12 flex flex-col gap-2">
+        <div
+            class="bg-secondary border-border dark:bg-secondary-dark dark:border-border-dark space-y-10 rounded-lg border p-6 px-10 shadow-lg"
+        >
             <div>
-                <p class="text-2xl"> > Adivina mi número:</p>
-                <p class="text-lg text-secondary mt-3">El objetivo del juego es adivinar un número al azar del 1 - 50,
-                    en el menor número de intentos posibles.</p>
+                <p class="text-2xl">> Adivina mi número:</p>
+                <p class="text-secondary mt-3 text-lg">
+                    El objetivo del juego es adivinar un número al azar del 1 - 50, en el menor número de intentos
+                    posibles.
+                </p>
 
                 <div class="mt-6 flex gap-4">
                     <button id="startGameBtn" class="btn-form">Empezar Juego</button>
                     <button id="resetGameBtn" disabled class="btn-form opacity-50">Reiniciar</button>
                 </div>
 
-                <div id="gameArea" style="display:none;" class="mt-6">
+                <div id="gameArea" style="display: none" class="mt-6">
                     <div class="space-y-4">
                         <div class="space-y-2">
                             <label for="userGuess" class="form-label">Introduce un número entre 1 y 50:</label>
-                            <input type="number" id="userGuess" min="1" max="50" class="form-input">
+                            <input type="number" id="userGuess" min="1" max="50" class="form-input" />
                         </div>
                         <button id="submitGuessBtn" class="btn-form">Enviar</button>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-4">
+                    <div class="mt-4 rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
                         <p id="feedback" class="text-lg font-medium"></p>
                         <p id="attempts" class="text-secondary"></p>
                     </div>
@@ -38,8 +42,8 @@ include $VIEW_DIR . '/partials/__header.php';
             </div>
 
             <div>
-                <p class="text-2xl"> > Conversor de grados:</p>
-                <p class="text-lg text-secondary mt-3">Convierte grados Celsius a Fahrenheit y viceversa</p>
+                <p class="text-2xl">> Conversor de grados:</p>
+                <p class="text-secondary mt-3 text-lg">Convierte grados Celsius a Fahrenheit y viceversa</p>
 
                 <form id="conversionTypeForm" class="mt-6">
                     <div class="space-y-2">
@@ -52,44 +56,47 @@ include $VIEW_DIR . '/partials/__header.php';
                     </div>
                 </form>
 
-                <form id="celsiusForm" style="display: none;" class="mt-6">
+                <form id="celsiusForm" style="display: none" class="mt-6">
                     <div class="space-y-4">
                         <div class="space-y-2">
                             <label for="celsius" class="form-label">Celsius:</label>
-                            <input type="number" id="celsius" name="celsius" class="form-input">
+                            <input type="number" id="celsius" name="celsius" class="form-input" />
                         </div>
                         <button type="submit" class="btn-form">Convertir</button>
                     </div>
                 </form>
 
-                <form id="fahrenheitForm" style="display: none;" class="mt-6">
+                <form id="fahrenheitForm" style="display: none" class="mt-6">
                     <div class="space-y-4">
                         <div class="space-y-2">
                             <label for="fahrenheit" class="form-label">Fahrenheit:</label>
-                            <input type="number" id="fahrenheit" name="fahrenheit" class="form-input">
+                            <input type="number" id="fahrenheit" name="fahrenheit" class="form-input" />
                         </div>
                         <button type="submit" class="btn-form">Convertir</button>
                     </div>
                 </form>
 
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-4" style="display: none;"
-                     id="container_grados">
+                <div
+                    class="mt-4 rounded-lg bg-gray-50 p-4 dark:bg-gray-700"
+                    style="display: none"
+                    id="container_grados"
+                >
                     <p id="result_grados" class="text-lg font-medium"></p>
                 </div>
             </div>
 
             <div>
-                <p class="text-2xl"> > Calcular el área de un rectángulo:</p>
+                <p class="text-2xl">> Calcular el área de un rectángulo:</p>
 
                 <form id="rectangleForm" class="mt-6">
                     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                         <div class="space-y-2">
                             <label for="altura" class="form-label">Longitud:</label>
-                            <input type="number" id="altura" name="length" required class="form-input">
+                            <input type="number" id="altura" name="length" required class="form-input" />
                         </div>
                         <div class="space-y-2">
                             <label for="anchura" class="form-label">Anchura:</label>
-                            <input type="number" id="anchura" name="width" required class="form-input">
+                            <input type="number" id="anchura" name="width" required class="form-input" />
                         </div>
                     </div>
                     <div class="mt-4 flex justify-center">
@@ -97,7 +104,7 @@ include $VIEW_DIR . '/partials/__header.php';
                     </div>
                 </form>
 
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-4" style="display: none;" id="container_area">
+                <div class="mt-4 rounded-lg bg-gray-50 p-4 dark:bg-gray-700" style="display: none" id="container_area">
                     <p id="result_area" class="text-lg font-medium"></p>
                 </div>
             </div>
@@ -106,7 +113,7 @@ include $VIEW_DIR . '/partials/__header.php';
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener('DOMContentLoaded', function () {
         // Rectangle area calculation
         const rectangleForm = document.querySelector('#rectangleForm');
         const container_area = document.querySelector('#container_area');
@@ -219,7 +226,7 @@ include $VIEW_DIR . '/partials/__header.php';
         celsiusForm.addEventListener('submit', function (event) {
             event.preventDefault();
             const celsius = parseFloat(document.querySelector('#celsius').value);
-            const fahrenheit = (celsius * 9 / 5) + 32;
+            const fahrenheit = (celsius * 9) / 5 + 32;
             result_grados.textContent = `${celsius} grados Celsius son ${fahrenheit.toFixed(2)} grados Fahrenheit.`;
             container_grados.style.display = 'block';
         });
@@ -227,7 +234,7 @@ include $VIEW_DIR . '/partials/__header.php';
         fahrenheitForm.addEventListener('submit', function (event) {
             event.preventDefault();
             const fahrenheit = parseFloat(document.querySelector('#fahrenheit').value);
-            const celsius = (fahrenheit - 32) * 5 / 9;
+            const celsius = ((fahrenheit - 32) * 5) / 9;
             result_grados.textContent = `${fahrenheit} grados Fahrenheit son ${celsius.toFixed(2)} grados Celsius.`;
             container_grados.style.display = 'block';
         });
