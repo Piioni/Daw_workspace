@@ -31,9 +31,21 @@
         @apply dark:bg-primary-dark dark:text-text-primary-dark;
         @apply accent-accent dark:accent-accent-dark;
     }
+
+    main {
+        @apply mx-auto mt-12 max-w-7xl px-8
+    }
 }
 
 @layer components {
+    .hero {
+        @apply text-text-heading dark:text-text-heading-dark dark:font-light mt-10 flex flex-col items-center justify-center py-2 text-center text-5xl font-semibold
+    }
+
+    .auto-grid {
+        @apply text-sm mx-auto mt-12 grid max-w-4xl auto-rows-fr grid-cols-1 grid-rows-[auto] gap-10 md:grid-cols-2
+    }
+
     /* Navigation components */
     .nav-container {
         @apply shadow-lg bg-secondary border-border;
@@ -57,7 +69,7 @@
 
     /* Card */
     .card {
-        @apply bg-secondary border-border rounded-lg shadow-md p-6 flex flex-col h-full;
+        @apply bg-secondary border-border border rounded-lg shadow-lg p-6 flex flex-col h-full;
         @apply dark:bg-secondary-dark dark:border-border-dark;
     }
 

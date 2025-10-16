@@ -16,6 +16,14 @@
             "options": {
                 "parser": "blade"
             }
+        },
+        {
+            "files": [
+                "*.css"
+            ],
+            "options": {
+                "parser": "css"
+            }
         }
     ]
 }

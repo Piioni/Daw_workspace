@@ -200,7 +200,8 @@ require $VIEW_DIR . '/partials/__header.php';
 
                 <div class="mt-6 text-center text-lg font-semibold">
                     <h2>
-                        Resultado: <?php echo is_numeric($resultado) ? number_format($resultado, 2) : $resultado; ?>
+                        Resultado:
+                        <?php echo is_numeric($resultado) ? number_format($resultado, 2) : $resultado; ?>
                     </h2>
                 </div>
 
@@ -237,28 +238,38 @@ require $VIEW_DIR . '/partials/__header.php';
                 <ul class="text-secondary list-inside list-disc space-y-2">
                     <li>
                         <strong>Entero:</strong>
-                        <?php echo $entero; ?> (Tipo: <?php echo gettype($entero); ?>)
+
+                        <?php echo $entero; ?>
+                        (Tipo: <?php echo gettype($entero); ?>)
                     </li>
                     <li>
                         <strong>Flotante:</strong>
-                        <?php echo $flotante; ?> (Tipo: <?php echo gettype($flotante); ?>)
+
+                        <?php echo $flotante; ?>
+                        (Tipo: <?php echo gettype($flotante); ?>)
                     </li>
                     <li>
                         <strong>Booleano:</strong>
+
                         <?php echo $booleano ? 'true' : 'false'; ?>
 
                         (Tipo: <?php echo gettype($booleano); ?>)
                     </li>
                     <li>
                         <strong>Cadena:</strong>
-                        <?php echo $cadena; ?> (Tipo: <?php echo gettype($cadena); ?>)
+
+                        <?php echo $cadena; ?>
+                        (Tipo: <?php echo gettype($cadena); ?>)
                     </li>
                     <li>
                         <strong>Constante PI:</strong>
-                        <?php echo PI; ?> (Tipo: <?php echo gettype(PI); ?>)
+
+                        <?php echo PI; ?>
+                        (Tipo: <?php echo gettype(PI); ?>)
                     </li>
                     <li class="mt-10">
                         <strong>Operación suma:</strong>
+
                         <?php echo $entero + $flotante; ?>
                     </li>
                 </ul>

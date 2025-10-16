@@ -12,7 +12,7 @@ require $VIEW_DIR . '/partials/__header.php';
     </div>
     <main class="mx-auto mt-12 flex w-full max-w-md flex-col gap-6">
         <div
-            class="bg-secondary border-border dark:bg-secondary-dark dark:border-border-dark space-y-10 rounded-lg border p-6 shadow-lg"
+            class="bg-secondary dark:bg-secondary-dark dark:border-border-dark border-border space-y-10 rounded-lg border p-6 shadow-lg"
         >
             <div>
                 <p class="text-2xl">> Clasificación de personas por edad:</p>
