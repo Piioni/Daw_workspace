@@ -6,17 +6,17 @@ include $VIEW_DIR . '/partials/__header.php';
 
 <div class="mb-15 w-full">
     <div class="text-heading mt-10 flex flex-col py-2 text-4xl font-semibold">
-        <div class="text-primary text-center">
+        <div class="text-title text-center">
             <h1>Primeros Ejercicios de Cliente</h1>
         </div>
     </div>
     <main class="mx-8 mt-12 flex flex-col gap-2">
         <div
-            class="bg-secondary border-border dark:bg-secondary-dark dark:border-border-dark space-y-10 rounded-lg border p-6 px-10 shadow-lg"
+            class="space-y-10 rounded-lg border border-border bg-secondary p-6 px-10 shadow-lg dark:border-border-dark dark:bg-secondary-dark"
         >
             <div>
                 <p class="text-2xl">> Adivina mi número:</p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     El objetivo del juego es adivinar un número al azar del 1 - 50, en el menor número de intentos
                     posibles.
                 </p>
@@ -43,7 +43,7 @@ include $VIEW_DIR . '/partials/__header.php';
 
             <div>
                 <p class="text-2xl">> Conversor de grados:</p>
-                <p class="text-secondary mt-3 text-lg">Convierte grados Celsius a Fahrenheit y viceversa</p>
+                <p class="mt-3 text-lg text-secondary">Convierte grados Celsius a Fahrenheit y viceversa</p>
 
                 <form id="conversionTypeForm" class="mt-6">
                     <div class="space-y-2">

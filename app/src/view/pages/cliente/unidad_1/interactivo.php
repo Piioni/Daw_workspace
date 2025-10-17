@@ -6,17 +6,17 @@ include $VIEW_DIR . '/partials/__header.php';
 
 <div class="mb-15 w-full">
     <div class="text-heading mt-10 flex flex-col py-2 text-4xl font-semibold">
-        <div class="text-primary text-center">
+        <div class="text-title text-center">
             <h1>¡Ejercicios Interactivos!</h1>
         </div>
     </div>
     <main class="mx-8 mt-12 flex flex-col gap-2">
         <div
-            class="bg-secondary border-border dark:bg-secondary-dark dark:border-border-dark space-y-10 rounded-lg border p-6 px-10 shadow-lg"
+            class="space-y-10 rounded-lg border border-border bg-secondary p-6 px-10 shadow-lg dark:border-border-dark dark:bg-secondary-dark"
         >
             <div>
                 <p class="text-2xl">> Fecha y hora actual:</p>
-                <p class="text-secondary mt-3 text-lg">Este ejercicio muestra la fecha y hora actual.</p>
+                <p class="mt-3 text-lg text-secondary">Este ejercicio muestra la fecha y hora actual.</p>
                 <div class="mt-4 rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
                     <p id="fecha_hora" class="text-lg font-medium"></p>
                 </div>
@@ -33,7 +33,7 @@ include $VIEW_DIR . '/partials/__header.php';
 
             <div>
                 <p class="text-2xl">> Multiplicar Números:</p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     Este ejercicio permite al usuario ingresar dos números y muestra el resultado de su multiplicación.
                 </p>
 
@@ -62,7 +62,7 @@ include $VIEW_DIR . '/partials/__header.php';
 
             <div>
                 <p class="text-2xl">> Cambiar el color de un texto:</p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     En este ejercicio se cambiará el color de un párrafo presionando un botón. El color se seleccionará
                     de forma aleatoria de una lista de colores predefinidos.
                 </p>

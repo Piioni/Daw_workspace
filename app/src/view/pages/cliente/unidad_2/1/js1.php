@@ -6,25 +6,25 @@ include $VIEW_DIR . '/partials/__header.php';
 
 <div class="mb-15 w-full">
     <div class="text-heading mt-10 flex flex-col py-2 text-4xl font-semibold">
-        <div class="text-primary text-center">
+        <div class="text-title text-center">
             <h1>Ejercicio 1 - Javascript</h1>
         </div>
     </div>
     <main class="mx-8 mt-12 flex flex-col gap-2">
         <div
-            class="bg-secondary border-border dark:bg-secondary-dark dark:border-border-dark space-y-10 rounded-lg border p-6 px-10 shadow-lg"
+            class="space-y-10 rounded-lg border border-border bg-secondary p-6 px-10 shadow-lg dark:border-border-dark dark:bg-secondary-dark"
         >
             <div>
                 <p class="text-2xl">> Uso de instrucción brake para salir de un bucle:</p>
-                <p id="array_numeros" class="text-secondary mt-3 text-lg"></p>
+                <p id="array_numeros" class="mt-3 text-lg text-secondary"></p>
             </div>
             <div>
                 <p class="text-2xl">> Imprimir los numeros impares de el 1 al 200:</p>
-                <p id="numeros_impares" class="text-secondary mt-3 text-lg"></p>
+                <p id="numeros_impares" class="mt-3 text-lg text-secondary"></p>
             </div>
             <div>
                 <p class="text-2xl">> Uso de instrucción labeled</p>
-                <p id="labeled" class="text-secondary mt-3 text-lg"></p>
+                <p id="labeled" class="mt-3 text-lg text-secondary"></p>
             </div>
             <div>
                 <p class="text-2xl">> Operadores de comparación</p>
@@ -170,25 +170,25 @@ include $VIEW_DIR . '/partials/__header.php';
             </div>
             <div>
                 <p class="text-2xl">> Operadores de asignación:</p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     El valor inicial de la variable sera:
-                    <span id="valor_inicial" class="text-secondary mt-3 text-lg"></span>
+                    <span id="valor_inicial" class="mt-3 text-lg text-secondary"></span>
                 </p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     Al utilizar += 10:
-                    <span id="valor_suma" class="text-secondary mt-3 text-lg"></span>
+                    <span id="valor_suma" class="mt-3 text-lg text-secondary"></span>
                 </p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     Al utilizar -= 5:
-                    <span id="valor_resta" class="text-secondary mt-3 text-lg"></span>
+                    <span id="valor_resta" class="mt-3 text-lg text-secondary"></span>
                 </p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     Al utilizar *= 3:
-                    <span id="valor_multiplicacion" class="text-secondary mt-3 text-lg"></span>
+                    <span id="valor_multiplicacion" class="mt-3 text-lg text-secondary"></span>
                 </p>
-                <p class="text-secondary mt-3 text-lg">
+                <p class="mt-3 text-lg text-secondary">
                     Al utilizar /= 2:
-                    <span id="valor_division" class="text-secondary mt-3 text-lg"></span>
+                    <span id="valor_division" class="mt-3 text-lg text-secondary"></span>
                 </p>
             </div>
 
@@ -202,7 +202,7 @@ include $VIEW_DIR . '/partials/__header.php';
                                 <span class="text-red-500">*</span>
                             </label>
                             <input type="number" id="edad_logica" name="edad_logica" required class="form-input" />
-                            <p class="text-secondary text-xs">Debe estar entre 18 y 65 años</p>
+                            <p class="text-xs text-secondary">Debe estar entre 18 y 65 años</p>
                         </div>
 
                         <div class="space-y-2">
@@ -217,7 +217,7 @@ include $VIEW_DIR . '/partials/__header.php';
                                 required
                                 class="form-input"
                             />
-                            <p class="text-secondary text-xs">Mínimo 8 caracteres</p>
+                            <p class="text-xs text-secondary">Mínimo 8 caracteres</p>
                         </div>
                     </div>
                     <div class="mt-4 flex justify-center">

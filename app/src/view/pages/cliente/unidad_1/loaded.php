@@ -6,13 +6,13 @@ include $VIEW_DIR . '/partials/__header.php';
 
 <div class="mb-15 w-full">
     <div class="text-heading mt-10 flex flex-col py-2 text-4xl font-semibold">
-        <div class="text-primary text-center">
+        <div class="text-title text-center">
             <h1>Ejercicios: Windows onLoad</h1>
         </div>
     </div>
     <main class="mx-8 mt-12 flex flex-col gap-2">
         <div
-            class="bg-secondary border-border dark:bg-secondary-dark dark:border-border-dark space-y-10 rounded-lg border p-6 px-10 shadow-lg"
+            class="space-y-10 rounded-lg border border-border bg-secondary p-6 px-10 shadow-lg dark:border-border-dark dark:bg-secondary-dark"
         >
             <div>
                 <p class="text-2xl">> Cambiar el texto de un párrafo:</p>

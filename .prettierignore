@@ -3,7 +3,6 @@ dist
 .env*
 vendor/
 /vendor
-public/
 .git
 **/.git
 package-lock.json

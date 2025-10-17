@@ -37,7 +37,7 @@ include $VIEW_DIR . '/partials/__header.php';
     </div>
     <div class="mx-auto mt-12 grid w-full max-w-4xl auto-rows-fr grid-cols-1 grid-rows-[auto] gap-6 md:grid-cols-2">
         <div class="card">
-            <div class="text-secondary text-2xl font-semibold">
+            <div class="text-2xl font-semibold text-secondary">
                 <h2><?php echo 'Bienvenido a la pagina, ' . htmlspecialchars($nombre); ?></h2>
             </div>
             <div class="mt-6">
@@ -71,7 +71,7 @@ include $VIEW_DIR . '/partials/__header.php';
                 <h2>Listado de frutas con su precio:</h2>
             </div>
             <div class="mt-6 flex w-full items-start">
-                <ul class="text-secondary list-inside list-disc space-y-2">
+                <ul class="list-inside list-disc space-y-2 text-secondary">
                     <?php foreach ($frutas as $fruta => $precio): ?>
 
                     <li><?php echo htmlspecialchars($fruta) . ' - ' . htmlspecialchars($precio); ?></li>
@@ -96,7 +96,7 @@ include $VIEW_DIR . '/partials/__header.php';
                     </div>
                 </form>
             </div>
-            <div class="text-secondary mt-6 text-2xl font-semibold">
+            <div class="mt-6 text-2xl font-semibold text-secondary">
                 <h2><?php echo 'Bienvenido a la pagina, ' . htmlspecialchars($nombre); ?></h2>
             </div>
         </div>

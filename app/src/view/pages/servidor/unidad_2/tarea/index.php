@@ -79,7 +79,7 @@ require $VIEW_DIR . '/partials/__header.php';
                     </div>
                 </form>
             </div>
-            <div class="text-secondary mt-6 text-2xl font-semibold">
+            <div class="mt-6 text-2xl font-semibold text-secondary">
                 <h2><?php echo 'Bienvenido a la pagina, ' . htmlspecialchars($nombre); ?></h2>
             </div>
         </div>
@@ -195,12 +195,13 @@ require $VIEW_DIR . '/partials/__header.php';
                     </div>
                 </form>
             </div>
-            <div class="text-secondary mt-6 text-left text-2xl font-semibold">
+            <div class="mt-6 text-left text-2xl font-semibold text-secondary">
                 <?php if ($resultado !== null): ?>
 
                 <div class="mt-6 text-center text-lg font-semibold">
                     <h2>
                         Resultado:
+
                         <?php echo is_numeric($resultado) ? number_format($resultado, 2) : $resultado; ?>
                     </h2>
                 </div>
@@ -213,10 +214,10 @@ require $VIEW_DIR . '/partials/__header.php';
                 <h2>Sentencias simples:</h2>
             </div>
             <div class="align-center mt-6 flex h-full flex-col justify-center text-lg">
-                <div class="text-secondary mb-20 text-lg font-semibold">
+                <div class="mb-20 text-lg font-semibold text-secondary">
                     <h3>Rangel Carmona Juan Esteban! Z0079225H</h3>
                 </div>
-                <div class="text-secondary mb-4 text-lg font-semibold">
+                <div class="mb-4 text-lg font-semibold text-secondary">
                     El código del script php siempre se incluye entre las etiquetas &lt;?php ?&gt;.
                 </div>
             </div>
@@ -235,17 +236,19 @@ require $VIEW_DIR . '/partials/__header.php';
             ?>
 
             <div class="align-center mt-6 flex h-full flex-col justify-center text-lg">
-                <ul class="text-secondary list-inside list-disc space-y-2">
+                <ul class="list-inside list-disc space-y-2 text-secondary">
                     <li>
                         <strong>Entero:</strong>
 
                         <?php echo $entero; ?>
+
                         (Tipo: <?php echo gettype($entero); ?>)
                     </li>
                     <li>
                         <strong>Flotante:</strong>
 
                         <?php echo $flotante; ?>
+
                         (Tipo: <?php echo gettype($flotante); ?>)
                     </li>
                     <li>
@@ -259,12 +262,14 @@ require $VIEW_DIR . '/partials/__header.php';
                         <strong>Cadena:</strong>
 
                         <?php echo $cadena; ?>
+
                         (Tipo: <?php echo gettype($cadena); ?>)
                     </li>
                     <li>
                         <strong>Constante PI:</strong>
 
                         <?php echo PI; ?>
+
                         (Tipo: <?php echo gettype(PI); ?>)
                     </li>
                     <li class="mt-10">
@@ -293,7 +298,7 @@ require $VIEW_DIR . '/partials/__header.php';
                 <h2>Variables globales y locales en funciones:</h2>
             </div>
             <div class="align-center mt-6 flex h-full flex-col justify-center text-lg">
-                <div class="text-secondary mb-4 text-lg font-semibold">
+                <div class="mb-4 text-lg font-semibold text-secondary">
                     <h3>
                         <?php monstrar_mensaje(); ?>
                     </h3>

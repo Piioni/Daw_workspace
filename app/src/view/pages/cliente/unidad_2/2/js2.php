@@ -6,13 +6,13 @@ require $VIEW_DIR . '/partials/__header.php';
 
 <div class="mb-15 w-full">
     <div class="text-heading mt-10 flex flex-col py-2 text-4xl font-semibold">
-        <div class="text-primary text-center">
+        <div class="text-title text-center">
             <h1>Ejercicio 2 - Javascript</h1>
         </div>
     </div>
     <main class="mx-auto mt-12 flex w-full max-w-md flex-col gap-6">
         <div
-            class="bg-secondary dark:bg-secondary-dark dark:border-border-dark border-border space-y-10 rounded-lg border p-6 shadow-lg"
+            class="space-y-10 rounded-lg border border-border bg-secondary p-6 shadow-lg dark:border-border-dark dark:bg-secondary-dark"
         >
             <div>
                 <p class="text-2xl">> Clasificación de personas por edad:</p>
@@ -41,14 +41,14 @@ require $VIEW_DIR . '/partials/__header.php';
                     id="container_clasificacion_edad"
                 >
                     <h4 class="mb-3 font-semibold">Resultado:</h4>
-                    <p class="text-secondary text-lg" id="resultado_clasificacion"></p>
+                    <p class="text-lg text-secondary" id="resultado_clasificacion"></p>
                 </div>
             </div>
             <div>
                 <p class="text-2xl">> Listado de características de un monitor Dell (while):</p>
                 <div class="mt-3 rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
                     <h4 class="mb-3 font-semibold">Características:</h4>
-                    <ul class="text-secondary list-disc pl-6 text-lg" id="caracteristicas_monitor"></ul>
+                    <ul class="list-disc pl-6 text-lg text-secondary" id="caracteristicas_monitor"></ul>
                 </div>
             </div>
         </div>

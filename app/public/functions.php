@@ -30,5 +30,3 @@ function isCurrentUrl(string $url): bool
     // Para otras rutas, verificar si la ruta actual comienza con la URL base
     return $currentPath === $url || str_starts_with($currentPath, $url . '/');
 }
-
-

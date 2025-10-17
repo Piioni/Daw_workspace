@@ -17,7 +17,7 @@ $heading = $heading ?? 'Daw 25/26';
                 <div class="mx-auto flex max-w-screen-xl items-center justify-between p-4">
                     <a href="/" class="flex items-center space-x-3">
                         <img src="/assets/images/cat.jpg" class="h-8 rounded-full" alt="Piioni Logo" />
-                        <span class="text-primary text-2xl font-semibold"><?php echo $heading; ?></span>
+                        <span class="text-title text-2xl font-semibold"><?php echo $heading; ?></span>
                     </a>
                     <div class="hidden items-center space-x-10 md:flex" id="navbar-default">
                         <a href="/" class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?>">Home</a>

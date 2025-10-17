@@ -8,6 +8,7 @@
         "prettier-plugin-tailwindcss"
     ],
     "tailwindPreserveDuplicates": true,
+    "tailwindStylesheet": "./app/public/assets/css/input.css",
     "overrides": [
         {
             "files": [
@@ -15,14 +16,6 @@
             ],
             "options": {
                 "parser": "blade"
-            }
-        },
-        {
-            "files": [
-                "*.css"
-            ],
-            "options": {
-                "parser": "css"
             }
         }
     ]
