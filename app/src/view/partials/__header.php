@@ -7,7 +7,7 @@ $heading = $heading ?? 'Daw 25/26';
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title><?php echo htmlspecialchars($title); ?></title>
+        <title><?= htmlspecialchars($title); ?></title>
         <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/assets/css/output.css" />
     </head>

@@ -69,7 +69,7 @@
 
     /* Card */
     .card {
-        @apply flex h-full flex-col rounded-lg border border-border bg-secondary p-6 shadow-lg;
+        @apply flex h-full justify-around flex-col rounded-lg border border-border bg-secondary p-6 shadow-lg;
         @apply dark:border-border-dark dark:bg-secondary-dark;
     }
 
