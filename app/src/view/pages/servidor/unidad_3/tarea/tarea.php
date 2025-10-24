@@ -3,6 +3,7 @@ $title = 'Tarea unidad 3';
 $arrayGenerado = [];
 $mensaje = '';
 $saludo = '';
+$valor = '';
 
 function generarArray($elemento): array
 {
@@ -11,6 +12,32 @@ function generarArray($elemento): array
         $array[] = $i;
     }
     return $array;
+}
+
+// Función genérica para generar tabla HTML
+function generarTablaHTML(array $datos, array $columnas, string $metodo = 'POST'): string
+{
+    $html = '<table class="w-full table-auto border-collapse bg-white dark:bg-gray-800">';
+    $html .= '<thead><tr class="bg-gray-100 dark:bg-gray-700">';
+
+    foreach ($columnas as $col) {
+        $html .= '<th class="border border-gray-400 px-4 py-2 text-gray-800 dark:text-gray-200">' . htmlspecialchars($col) . '</th>';
+    }
+
+    $html .= '</tr></thead><tbody>';
+
+    foreach ($datos as $fila) {
+        $html .= '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700">';
+        foreach ($fila as $celda) {
+            $html .= '<td class="border border-gray-400 px-4 py-2 text-center text-gray-800 dark:text-gray-200">' . htmlspecialchars((string)$celda) . '</td>';
+        }
+        $html .= '</tr>';
+    }
+
+    $html .= '</tbody></table>';
+    $html .= '<p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">- Mediante ' . htmlspecialchars($metodo) . '</p>';
+
+    return $html;
 }
 
 // Handle POST submissions (PRG pattern)
@@ -48,7 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $edad_saludo = intval($_POST['edad_saludo']);
 
         if (! empty($nombre) && $edad_saludo >= 0) {
-            $_SESSION['saludo'] = 'Hola ' . htmlspecialchars($nombre) . ', tienes ' . $edad_saludo . ' años - Mediante POST';
+            $_SESSION['saludo'] =
+                'Hola ' . htmlspecialchars($nombre) . ', tienes ' . $edad_saludo . ' años - Mediante POST';
         } else {
             $_SESSION['saludo'] = 'Por favor, ingresa un nombre válido y una edad correcta. - Mediante POST';
         }
@@ -62,41 +90,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $valores = $_POST['valores'];
         $numeros = array_map('trim', explode(',', $valores));
 
-        // Generate only the table HTML without the container div
-        $tablaHTML = '<table class="w-full table-auto border-collapse bg-white dark:bg-gray-800">';
-        $tablaHTML .= '<thead><tr class="bg-gray-100 dark:bg-gray-700">';
-        $tablaHTML .= '<th class="border border-gray-400 px-4 py-2 text-gray-800 dark:text-gray-200">Número</th>';
-        $tablaHTML .= '<th class="border border-gray-400 px-4 py-2 text-gray-800 dark:text-gray-200">Cuadrado</th>';
-        $tablaHTML .= '</tr></thead><tbody>';
-
+        $datosTabla = [];
         foreach ($numeros as $numero) {
             if (is_numeric($numero)) {
-                $cuadrado = $numero * $numero;
-                $tablaHTML .= '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700">';
-                $tablaHTML .=
-                    '<td class="border border-gray-400 px-4 py-2 text-center text-gray-800 dark:text-gray-200">' .
-                    htmlspecialchars($numero) .
-                    '</td>';
-                $tablaHTML .=
-                    '<td class="border border-gray-400 px-4 py-2 text-center text-gray-800 dark:text-gray-200">' .
-                    htmlspecialchars($cuadrado) .
-                    '</td>';
-                $tablaHTML .= '</tr>';
+                $datosTabla[] = [$numero, $numero * $numero];
             }
         }
 
-        $tablaHTML .= '</tbody></table>';
-        $tablaHTML .= '<p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">- Mediante POST</p>';
-
-        $_SESSION['tabla'] = $tablaHTML;
-
+        $_SESSION['tabla'] = generarTablaHTML($datosTabla, ['Número', 'Cuadrado'], 'POST');
         // Redirect to prevent form resubmission
+        header('Location: ' . $_SERVER['REQUEST_URI']);
+        exit();
+    }
+
+    if (isset($_POST['valor'])) {
+        $raw = trim((string)$_POST['valor']);
+
+        if ($raw === '') {
+            $_SESSION['valor_message'] = 'Introduzca un valor - Mediante POST';
+        } elseif (!is_numeric($raw)) {
+            $_SESSION['valor_message'] = 'Introduzca un valor numérico - Mediante POST';
+        } else {
+            $num = (int)$raw;
+            if ($num < 0) {
+                $_SESSION['valor_message'] = 'Introduzca un valor positivo - Mediante POST';
+            } elseif ($num >= 0 && $num <= 10) {
+                // Generar array completo y filtrar cada 3 elementos
+                $arrayCompleto = generarArray($num);
+                $arrayFiltrado = [];
+                for ($i = 0; $i < count($arrayCompleto); $i += 3) {
+                    $arrayFiltrado[] = [$arrayCompleto[$i]];
+                }
+
+                $_SESSION['tabla_valor'] = generarTablaHTML($arrayFiltrado, ['Valor'], 'POST');
+            } elseif ($num > 10) {
+                $_SESSION['valor_message'] = 'Número demasiado grande - Mediante POST';
+            } else {
+                $_SESSION['valor_message'] = 'Valor desconocido - Mediante POST';
+            }
+        }
+
+        // Redirect to prevent form resubmission (PRG)
         header('Location: ' . $_SERVER['REQUEST_URI']);
         exit();
     }
 }
 
-// Handle GET requests - show results from session
+// Handle GET requests - show results from session (replace previous valor handling)
 if (isset($_SESSION['mensaje'])) {
     $mensaje = $_SESSION['mensaje'];
     unset($_SESSION['mensaje']); // Clear message after displaying
@@ -104,7 +144,7 @@ if (isset($_SESSION['mensaje'])) {
 
 if (isset($_SESSION['arrayGenerado'])) {
     $arrayGenerado = $_SESSION['arrayGenerado'];
-    $arrayMetodo = isset($_SESSION['arrayMetodo']) ? $_SESSION['arrayMetodo'] : '';
+    $arrayMetodo = $_SESSION['arrayMetodo'] ?? '';
     unset($_SESSION['arrayGenerado']); // Clear array after displaying
     unset($_SESSION['arrayMetodo']);
 }
@@ -118,6 +158,48 @@ if (isset($_SESSION['tabla'])) {
     $tabla = $_SESSION['tabla'];
     unset($_SESSION['tabla']); // Clear table after displaying
 }
+
+// new: read valor-related session keys
+$valor_message = null;
+$tabla_valor = null;
+if (isset($_SESSION['valor_message'])) {
+    $valor_message = $_SESSION['valor_message'];
+    unset($_SESSION['valor_message']);
+}
+if (isset($_SESSION['tabla_valor'])) {
+    $tabla_valor = $_SESSION['tabla_valor'];
+    unset($_SESSION['tabla_valor']);
+}
+
+if (isset($_SESSION['valor'])) {
+    $mensaje_valor = 'El valor enviado es: ' . htmlspecialchars($_SESSION['valor']);
+    unset($_SESSION['valor']);
+}
+
+// new: handle simple GET "user" greeting and generate 1-10 parity list
+$bienvenido = '';
+if (isset($_GET['user'])) {
+    $rawUser = trim((string)$_GET['user']);
+    if ($rawUser === '') {
+        $bienvenido = 'Bienvenido, invitado - Mediante GET';
+    } else {
+        $bienvenido = 'Bienvenido, ' . htmlspecialchars($rawUser) . ' - Mediante GET';
+    }
+}
+
+// generate numbers 1..10 with parity (no method suffix)
+$numeros_output = '';
+$items = [];
+for ($i = 1; $i <= 10; $i++) {
+    $par = ($i % 2 === 0) ? 'par' : 'impar';
+    $items[] = htmlspecialchars($i . ' - ' . $par);
+}
+$numeros_output = '<ol class="list-decimal list-inside space-y-1 text-secondary">' . PHP_EOL;
+foreach ($items as $it) {
+    // Removed " - Mediante PHP" per request
+    $numeros_output .= '<li class="text-secondary">' . $it . '</li>' . PHP_EOL;
+}
+$numeros_output .= '</ol>';
 
 global $VIEW_DIR;
 include $VIEW_DIR . '/partials/__header.php';
@@ -264,6 +346,79 @@ include $VIEW_DIR . '/partials/__header.php';
                         </div>
 
                         <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- single centered card block -->
+            <div class="flex justify-center">
+                <div class="mx-auto w-full max-w-[38rem] md:w-1/2">
+                    <div class="card">
+                        <?php if (empty($valor_message) && empty($tabla_valor)): ?>
+                            <!-- No parameter/result: show form and the H2 notice -->
+                            <h2 class="text-heading mb-4 text-2xl font-semibold text-center">No se ha introducido ningún valor</h2>
+                            <form action="" method="POST">
+                                <div>
+                                    <label for="valor" class="form-label">Valor:</label>
+                                    <input type="text" name="valor" id="valor" class="form-input" />
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" class="btn-form">Enviar</button>
+                                </div>
+                            </form>
+                        <?php else: ?>
+                            <!-- Result exists: hide the form and show only results -->
+                            <?php if (!empty($valor_message)): ?>
+                                <div class="text-center">
+                                    <h3 class="mt-2 mb-2 text-xl font-semibold text-secondary">Resultado</h3>
+                                    <p class="text-lg font-semibold text-secondary"><?php echo htmlspecialchars($valor_message); ?></p>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($tabla_valor)): ?>
+                                <div class="text-center">
+                                    <h3 class="mt-6 mb-2 text-xl font-semibold text-secondary">Tabla generada:</h3>
+                                    <div class="mt-6 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-4 dark:border-accent-dark/30 dark:bg-accent-dark/10">
+                                        <?php echo $tabla_valor; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVOS EJERCICIOS: fila con 2 columnas -->
+            <div class="grid grid-cols-2 gap-14">
+                <!-- Card 1: formulario GET y mensaje Bienvenida -->
+                <div class="card">
+                    <h2 class="text-heading mb-4 text-2xl font-semibold">Enlace GET — Bienvenida</h2>
+                    <p class="mb-4 text-secondary">Introduce tu nombre y envíalo por GET:</p>
+
+                    <!-- Form that sends name via GET -->
+                    <form method="GET" action="" class="space-y-4">
+                        <div>
+                            <label for="user" class="form-label">Nombre:</label>
+                            <input id="user" name="user" type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-form">Enviar nombre (GET)</button>
+                        </div>
+                    </form>
+
+                    <?php if (!empty($bienvenido)): ?>
+                        <div class="mt-6 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-4 text-center">
+                            <p class="text-lg font-semibold text-secondary"><?php echo $bienvenido; ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Card 2: imprimir 1..10 con par/impar -->
+                <div class="card">
+                    <h2 class="text-heading mb-4 text-2xl font-semibold">Bucle for — Números 1 a 10</h2>
+                    <p class="mb-4 text-secondary">Lista generada en PHP con for indicando par/impar:</p>
+                    <div>
+                        <?php echo $numeros_output; ?>
                     </div>
                 </div>
             </div>

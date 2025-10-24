@@ -21,6 +21,7 @@ return [
         '/servidor/2/dinamic_web' => ['view' => '/dinamic_web.php', 'directory' => '/pages/servidor/unidad_2/1'],
         // Unidad 3
         '/servidor/3/tarea' => ['view' => '/tarea.php' , 'directory' => '/pages/servidor/unidad_3/tarea'],
+        '/servidor/3/ejercicios' => ['view' => '/ejercicios.php', 'directory' => '/pages/servidor/unidad_3/1'],
 
         // CLIENTE
         '/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],

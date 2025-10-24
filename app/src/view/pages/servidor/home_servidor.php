@@ -71,8 +71,8 @@ include $VIEW_DIR . '/partials/__header.php';
                         <h3 class="text-heading mb-2 text-xl font-semibold">Ejercicios:</h3>
                         <ul class="list-inside list-disc space-y-2 text-secondary">
                             <li>
-                                <a class="nav-internal-link" href="/servidor/3/sesiones_cookies">
-                                    Ejercicios sobre sesiones y cookies
+                                <a class="nav-internal-link" href="/servidor/3/ejercicios">
+                                    Ejercicios sobre PHP
                                 </a>
                             </li>
                         </ul>
