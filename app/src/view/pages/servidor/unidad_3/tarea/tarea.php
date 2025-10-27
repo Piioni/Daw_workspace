@@ -21,7 +21,10 @@ function generarTablaHTML(array $datos, array $columnas, string $metodo = 'POST'
     $html .= '<thead><tr class="bg-gray-100 dark:bg-gray-700">';
 
     foreach ($columnas as $col) {
-        $html .= '<th class="border border-gray-400 px-4 py-2 text-gray-800 dark:text-gray-200">' . htmlspecialchars($col) . '</th>';
+        $html .=
+            '<th class="border border-gray-400 px-4 py-2 text-gray-800 dark:text-gray-200">' .
+            htmlspecialchars($col) .
+            '</th>';
     }
 
     $html .= '</tr></thead><tbody>';
@@ -29,13 +32,19 @@ function generarTablaHTML(array $datos, array $columnas, string $metodo = 'POST'
     foreach ($datos as $fila) {
         $html .= '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700">';
         foreach ($fila as $celda) {
-            $html .= '<td class="border border-gray-400 px-4 py-2 text-center text-gray-800 dark:text-gray-200">' . htmlspecialchars((string)$celda) . '</td>';
+            $html .=
+                '<td class="border border-gray-400 px-4 py-2 text-center text-gray-800 dark:text-gray-200">' .
+                htmlspecialchars((string) $celda) .
+                '</td>';
         }
         $html .= '</tr>';
     }
 
     $html .= '</tbody></table>';
-    $html .= '<p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">- Mediante ' . htmlspecialchars($metodo) . '</p>';
+    $html .=
+        '<p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">- Mediante ' .
+        htmlspecialchars($metodo) .
+        '</p>';
 
     return $html;
 }
@@ -104,14 +113,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (isset($_POST['valor'])) {
-        $raw = trim((string)$_POST['valor']);
+        $raw = trim((string) $_POST['valor']);
 
         if ($raw === '') {
             $_SESSION['valor_message'] = 'Introduzca un valor - Mediante POST';
-        } elseif (!is_numeric($raw)) {
+        } elseif (! is_numeric($raw)) {
             $_SESSION['valor_message'] = 'Introduzca un valor numérico - Mediante POST';
         } else {
-            $num = (int)$raw;
+            $num = (int) $raw;
             if ($num < 0) {
                 $_SESSION['valor_message'] = 'Introduzca un valor positivo - Mediante POST';
             } elseif ($num >= 0 && $num <= 10) {
@@ -179,7 +188,7 @@ if (isset($_SESSION['valor'])) {
 // new: handle simple GET "user" greeting and generate 1-10 parity list
 $bienvenido = '';
 if (isset($_GET['user'])) {
-    $rawUser = trim((string)$_GET['user']);
+    $rawUser = trim((string) $_GET['user']);
     if ($rawUser === '') {
         $bienvenido = 'Bienvenido, invitado - Mediante GET';
     } else {
@@ -191,7 +200,7 @@ if (isset($_GET['user'])) {
 $numeros_output = '';
 $items = [];
 for ($i = 1; $i <= 10; $i++) {
-    $par = ($i % 2 === 0) ? 'par' : 'impar';
+    $par = $i % 2 === 0 ? 'par' : 'impar';
     $items[] = htmlspecialchars($i . ' - ' . $par);
 }
 $numeros_output = '<ol class="list-decimal list-inside space-y-1 text-secondary">' . PHP_EOL;
@@ -355,34 +364,49 @@ include $VIEW_DIR . '/partials/__header.php';
                 <div class="mx-auto w-full max-w-[38rem] md:w-1/2">
                     <div class="card">
                         <?php if (empty($valor_message) && empty($tabla_valor)): ?>
-                            <!-- No parameter/result: show form and the H2 notice -->
-                            <h2 class="text-heading mb-4 text-2xl font-semibold text-center">No se ha introducido ningún valor</h2>
-                            <form action="" method="POST">
-                                <div>
-                                    <label for="valor" class="form-label">Valor:</label>
-                                    <input type="text" name="valor" id="valor" class="form-input" />
-                                </div>
-                                <div class="mt-4">
-                                    <button type="submit" class="btn-form">Enviar</button>
-                                </div>
-                            </form>
-                        <?php else: ?>
-                            <!-- Result exists: hide the form and show only results -->
-                            <?php if (!empty($valor_message)): ?>
-                                <div class="text-center">
-                                    <h3 class="mt-2 mb-2 text-xl font-semibold text-secondary">Resultado</h3>
-                                    <p class="text-lg font-semibold text-secondary"><?php echo htmlspecialchars($valor_message); ?></p>
-                                </div>
-                            <?php endif; ?>
 
-                            <?php if (!empty($tabla_valor)): ?>
-                                <div class="text-center">
-                                    <h3 class="mt-6 mb-2 text-xl font-semibold text-secondary">Tabla generada:</h3>
-                                    <div class="mt-6 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-4 dark:border-accent-dark/30 dark:bg-accent-dark/10">
-                                        <?php echo $tabla_valor; ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
+                        <!-- No parameter/result: show form and the H2 notice -->
+                        <h2 class="text-heading mb-4 text-center text-2xl font-semibold">
+                            No se ha introducido ningún valor
+                        </h2>
+                        <form action="" method="POST">
+                            <div>
+                                <label for="valor" class="form-label">Valor:</label>
+                                <input type="text" name="valor" id="valor" class="form-input" />
+                            </div>
+                            <div class="mt-4">
+                                <button type="submit" class="btn-form">Enviar</button>
+                            </div>
+                        </form>
+
+                        <?php else: ?>
+
+                        <!-- Result exists: hide the form and show only results -->
+
+                        <?php if (!empty($valor_message)): ?>
+
+                        <div class="text-center">
+                            <h3 class="mt-2 mb-2 text-xl font-semibold text-secondary">Resultado</h3>
+                            <p class="text-lg font-semibold text-secondary">
+                                <?php echo htmlspecialchars($valor_message); ?>
+                            </p>
+                        </div>
+
+                        <?php endif; ?>
+
+                        <?php if (!empty($tabla_valor)): ?>
+
+                        <div class="text-center">
+                            <h3 class="mt-6 mb-2 text-xl font-semibold text-secondary">Tabla generada:</h3>
+                            <div
+                                class="mt-6 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-4 dark:border-accent-dark/30 dark:bg-accent-dark/10"
+                            >
+                                <?php echo $tabla_valor; ?>
+                            </div>
+                        </div>
+
+                        <?php endif; ?>
+
                         <?php endif; ?>
                     </div>
                 </div>
@@ -407,9 +431,11 @@ include $VIEW_DIR . '/partials/__header.php';
                     </form>
 
                     <?php if (!empty($bienvenido)): ?>
-                        <div class="mt-6 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-4 text-center">
-                            <p class="text-lg font-semibold text-secondary"><?php echo $bienvenido; ?></p>
-                        </div>
+
+                    <div class="mt-6 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-4 text-center">
+                        <p class="text-lg font-semibold text-secondary"><?php echo $bienvenido; ?></p>
+                    </div>
+
                     <?php endif; ?>
                 </div>
 

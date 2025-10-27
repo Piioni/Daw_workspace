@@ -320,7 +320,6 @@ include $VIEW_DIR . '/partials/__header.php';
     <div class="hero"><h1>Ejercicios — Sentencias, Bucles, Arrays, Funciones, Avanzados</h1></div>
     <main>
         <div class="max-x-6xl mx-auto mt-12 grid gap-12">
-
             <!-- SENTENCIAS Y CONDICIONALES -->
             <section class="space-y-6">
                 <h2 class="text-heading text-3xl font-semibold">Sentencias y Condicionales</h2>
@@ -422,7 +421,9 @@ include $VIEW_DIR . '/partials/__header.php';
                             </form>
 
                             <?php if (!empty($results['mes_dias'])): ?>
-                                <p class="mt-3 text-secondary"><?= htmlspecialchars($results['mes_dias']) ?></p>
+
+                            <p class="mt-3 text-secondary"><?= htmlspecialchars($results['mes_dias']) ?></p>
+
                             <?php endif; ?>
                         </div>
                     </div>
@@ -517,7 +518,9 @@ include $VIEW_DIR . '/partials/__header.php';
                             </form>
 
                             <?php if (isset($results['password_do'])): ?>
-                                <p class="mt-3 text-secondary"><?= htmlspecialchars($results['password_do']) ?></p>
+
+                            <p class="mt-3 text-secondary"><?= htmlspecialchars($results['password_do']) ?></p>
+
                             <?php endif; ?>
                         </div>
                     </div>
@@ -541,7 +544,9 @@ include $VIEW_DIR . '/partials/__header.php';
 
                         <ol class="list-inside list-decimal text-secondary">
                             <?php foreach ($alumnos as $al): ?>
+
                             <li><?= htmlspecialchars($al) ?></li>
+
                             <?php endforeach; ?>
                         </ol>
                     </div>
@@ -589,7 +594,8 @@ include $VIEW_DIR . '/partials/__header.php';
                         <?php if (!empty($results['aleatorios'])): ?>
 
                         <p class="mt-2 text-secondary">
-                            Números: <?= htmlspecialchars(implode(', ', $results['aleatorios']['nums'])) ?>
+                            Números:
+                            <?= htmlspecialchars(implode(', ', $results['aleatorios']['nums'])) ?>
                         </p>
                         <p class="mt-1 text-secondary">Promedio: <?= round($results['aleatorios']['avg'], 2) ?></p>
 
@@ -604,16 +610,24 @@ include $VIEW_DIR . '/partials/__header.php';
                             <h3 class="mb-3 text-xl font-semibold">Saludos con foreach</h3>
                             <form method="POST" class="space-y-3">
                                 <input type="hidden" name="action" value="saludos_foreach" />
-                                <input name="names_foreach" class="form-input" placeholder="Nombres separados por comas" />
+                                <input
+                                    name="names_foreach"
+                                    class="form-input"
+                                    placeholder="Nombres separados por comas"
+                                />
                                 <button class="btn-form" type="submit">Saludar</button>
                             </form>
 
                             <?php if (!empty($results['saludos_foreach'])): ?>
-                                <ul class="mt-3 list-inside text-secondary">
-                                    <?php foreach ($results['saludos_foreach'] as $s): ?>
-                                        <li><?= $s ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
+
+                            <ul class="mt-3 list-inside text-secondary">
+                                <?php foreach ($results['saludos_foreach'] as $s): ?>
+
+                                <li><?= $s ?></li>
+
+                                <?php endforeach; ?>
+                            </ul>
+
                             <?php endif; ?>
                         </div>
                     </div>
@@ -636,7 +650,9 @@ include $VIEW_DIR . '/partials/__header.php';
                         </form>
 
                         <?php if (!empty($results['primo'])): ?>
+
                         <p class="mt-3 text-secondary"><?= htmlspecialchars($results['primo']) ?></p>
+
                         <?php endif; ?>
                     </div>
 
@@ -650,7 +666,9 @@ include $VIEW_DIR . '/partials/__header.php';
                         </form>
 
                         <?php if (!empty($results['vocales'])): ?>
+
                         <p class="mt-3 text-secondary"><?= htmlspecialchars($results['vocales']) ?></p>
+
                         <?php endif; ?>
                     </div>
 
@@ -664,7 +682,9 @@ include $VIEW_DIR . '/partials/__header.php';
                         </form>
 
                         <?php if (!empty($results['celsius'])): ?>
+
                         <p class="mt-3 text-secondary"><?= htmlspecialchars($results['celsius']) ?></p>
+
                         <?php endif; ?>
                     </div>
 
@@ -678,7 +698,9 @@ include $VIEW_DIR . '/partials/__header.php';
                         </form>
 
                         <?php if (!empty($results['palindromo'])): ?>
+
                         <p class="mt-3 text-secondary"><?= htmlspecialchars($results['palindromo']) ?></p>
+
                         <?php endif; ?>
                     </div>
                 </div>
@@ -696,7 +718,9 @@ include $VIEW_DIR . '/partials/__header.php';
                             </form>
 
                             <?php if (!empty($results['triangulo'])): ?>
-                                <p class="mt-3 text-secondary"><?= htmlspecialchars($results['triangulo']) ?></p>
+
+                            <p class="mt-3 text-secondary"><?= htmlspecialchars($results['triangulo']) ?></p>
+
                             <?php endif; ?>
                         </div>
                     </div>
@@ -723,7 +747,8 @@ include $VIEW_DIR . '/partials/__header.php';
                         ?>
 
                         <p class="mt-3 text-secondary">
-                            Min: <?= $s['min'] ?> — Max: <?= $s['max'] ?> — Avg: <?= round($s['avg'], 2) ?>
+                            Min: <?= $s['min'] ?> — Max: <?= $s['max'] ?> — Avg:
+                            <?= round($s['avg'], 2) ?>
                         </p>
 
                         <?php endif; ?>
@@ -747,7 +772,8 @@ include $VIEW_DIR . '/partials/__header.php';
                         ?>
 
                         <p class="mt-3 text-secondary">
-                            Total: <?= $r['count'] ?> — Aprobados: <?= $r['aprobados'] ?>
+                            Total: <?= $r['count'] ?> — Aprobados:
+                            <?= $r['aprobados'] ?>
                         </p>
 
                         <?php endif; ?>
@@ -769,8 +795,11 @@ include $VIEW_DIR . '/partials/__header.php';
                         ?>
 
                         <p class="mt-3 text-secondary">
-                            Totales: c1=<?= $v['totales']['c1'] ?> c2=<?= $v['totales']['c2'] ?>
-                            c3=<?= $v['totales']['c3'] ?>
+                            Totales: c1=<?= $v['totales']['c1'] ?> c2=
+                            <?= $v['totales']['c2'] ?>
+
+                            c3=
+                            <?= $v['totales']['c3'] ?>
                         </p>
                         <p class="text-secondary">Ganador: <?= htmlspecialchars($v['ganador']) ?></p>
 
@@ -807,7 +836,11 @@ include $VIEW_DIR . '/partials/__header.php';
                             <h3 class="mb-3 text-xl font-semibold">Carrito de compra (calcular total con IVA)</h3>
                             <form method="POST" class="space-y-3">
                                 <input type="hidden" name="action" value="carrito" />
-                                <input name="carrito_raw" class="form-input" placeholder="Formato: prod:precio,prod2:precio2" />
+                                <input
+                                    name="carrito_raw"
+                                    class="form-input"
+                                    placeholder="Formato: prod:precio,prod2:precio2"
+                                />
                                 <input name="iva" type="number" class="form-input" placeholder="IVA (%)" value="21" />
                                 <button class="btn-form" type="submit">Calcular total</button>
                             </form>
@@ -815,15 +848,17 @@ include $VIEW_DIR . '/partials/__header.php';
                             <?php if (!empty($results['carrito'])):
                                 $c = $results['carrito'];
                             ?>
-                                <p class="mt-3 text-secondary">
-                                    Subtotal: <?= round($c['subtotal'], 2) ?> — IVA: <?= $c['iva'] ?>% — Total: <?= round($c['total'], 2) ?>
-                                </p>
+
+                            <p class="mt-3 text-secondary">
+                                Subtotal: <?= round($c['subtotal'], 2) ?> — IVA: <?= $c['iva'] ?>% — Total:
+                                <?= round($c['total'], 2) ?>
+                            </p>
+
                             <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </main>
 </div>
