@@ -240,6 +240,9 @@
   }
 }
 @layer utilities {
+  .col-span-2 {
+    grid-column: span 2 / span 2;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -465,6 +468,9 @@
   .gap-16 {
     gap: calc(var(--spacing) * 16);
   }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
+  }
   .space-y-1 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -677,6 +683,9 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
   .pl-6 {
     padding-left: calc(var(--spacing) * 6);
   }
@@ -685,6 +694,9 @@
   }
   .text-left {
     text-align: left;
+  }
+  .align-top {
+    vertical-align: top;
   }
   .font-mono {
     font-family: var(--font-mono);

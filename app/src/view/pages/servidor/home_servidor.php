@@ -79,6 +79,21 @@ include $VIEW_DIR . '/partials/__header.php';
                     </div>
                 </div>
             </div>
+
+            <div class="flex flex-col">
+                <div class="card">
+                    <h2 class="text-heading mb-4 text-2xl font-semibold">Unidad 4</h2>
+                    <p class="mb-4 text-secondary">Sesiones y cookies en PHP</p>
+                    <div>
+                        <h3 class="text-heading mb-2 text-xl font-semibold">Ejercicios:</h3>
+                        <ul class="list-inside list-disc space-y-2 text-secondary">
+                            <li>
+                                <a class="nav-internal-link" href="/servidor/4/cookies">Ejercicios sobre cookies básicos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </div>
