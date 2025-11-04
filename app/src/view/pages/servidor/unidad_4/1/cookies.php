@@ -166,11 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $existing[] = ['name' => $name, 'price' => $price];
                 save_cart_items($existing);
                 header('Location: ' . $base . '?cart_status=added');
-                exit();
             } else {
                 header('Location: ' . $base . '?cart_status=invalid');
-                exit();
             }
+            exit();
         }
 
         // Remove item by index

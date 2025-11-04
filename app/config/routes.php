@@ -24,6 +24,7 @@ return [
         '/servidor/3/ejercicios' => ['view' => '/ejercicios.php', 'directory' => '/pages/servidor/unidad_3/1'],
         // Unidad 4
         '/servidor/4/cookies' => ['view' => '/cookies.php', 'directory' => '/pages/servidor/unidad_4/1'],
+        '/servidor/4/sessions' => ['view' => '/sessions.php', 'directory' => '/pages/servidor/unidad_4/2'],
 
         // CLIENTE
         '/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],

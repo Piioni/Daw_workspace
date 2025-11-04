@@ -90,6 +90,9 @@ include $VIEW_DIR . '/partials/__header.php';
                             <li>
                                 <a class="nav-internal-link" href="/servidor/4/cookies">Ejercicios sobre cookies básicos</a>
                             </li>
+                            <li>
+                                <a class="nav-internal-link" href="/servidor/4/sessions">Ejercicios sobre sesiones</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

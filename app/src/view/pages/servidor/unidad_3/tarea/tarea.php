@@ -185,7 +185,6 @@ if (isset($_SESSION['valor'])) {
     unset($_SESSION['valor']);
 }
 
-// new: handle simple GET "user" greeting and generate 1-10 parity list
 $bienvenido = '';
 if (isset($_GET['user'])) {
     $rawUser = trim((string) $_GET['user']);
@@ -196,19 +195,11 @@ if (isset($_GET['user'])) {
     }
 }
 
-// generate numbers 1..10 with parity (no method suffix)
-$numeros_output = '';
-$items = [];
+$numeros_items = [];
 for ($i = 1; $i <= 10; $i++) {
     $par = $i % 2 === 0 ? 'par' : 'impar';
-    $items[] = htmlspecialchars($i . ' - ' . $par);
+    $numeros_items[] = $i . ' - ' . $par;
 }
-$numeros_output = '<ol class="list-decimal list-inside space-y-1 text-secondary">' . PHP_EOL;
-foreach ($items as $it) {
-    // Removed " - Mediante PHP" per request
-    $numeros_output .= '<li class="text-secondary">' . $it . '</li>' . PHP_EOL;
-}
-$numeros_output .= '</ol>';
 
 global $VIEW_DIR;
 include $VIEW_DIR . '/partials/__header.php';
@@ -412,14 +403,11 @@ include $VIEW_DIR . '/partials/__header.php';
                 </div>
             </div>
 
-            <!-- NUEVOS EJERCICIOS: fila con 2 columnas -->
             <div class="grid grid-cols-2 gap-14">
-                <!-- Card 1: formulario GET y mensaje Bienvenida -->
                 <div class="card">
                     <h2 class="text-heading mb-4 text-2xl font-semibold">Enlace GET — Bienvenida</h2>
                     <p class="mb-4 text-secondary">Introduce tu nombre y envíalo por GET:</p>
 
-                    <!-- Form that sends name via GET -->
                     <form method="GET" action="" class="space-y-4">
                         <div>
                             <label for="user" class="form-label">Nombre:</label>
@@ -439,12 +427,17 @@ include $VIEW_DIR . '/partials/__header.php';
                     <?php endif; ?>
                 </div>
 
-                <!-- Card 2: imprimir 1..10 con par/impar -->
                 <div class="card">
                     <h2 class="text-heading mb-4 text-2xl font-semibold">Bucle for — Números 1 a 10</h2>
                     <p class="mb-4 text-secondary">Lista generada en PHP con for indicando par/impar:</p>
                     <div>
-                        <?php echo $numeros_output; ?>
+                        <ol class="list-inside list-decimal space-y-1 text-secondary">
+                            <?php foreach ($numeros_items as $item): ?>
+
+                            <li class="text-secondary"><?php echo htmlspecialchars($item); ?></li>
+
+                            <?php endforeach; ?>
+                        </ol>
                     </div>
                 </div>
             </div>
