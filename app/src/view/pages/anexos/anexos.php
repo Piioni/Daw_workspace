@@ -24,7 +24,7 @@ include $VIEW_DIR . '/partials/__header.php';
                         <h3 class="text-heading mb-2 text-xl font-semibold">Ejercicios:</h3>
                         <ul class="list-inside list-disc space-y-2 text-secondary">
                             <li>
-                                <a class="nav-internal-link" href="/cliente/anexos/jquery">Ejercicios de jQuery</a>
+                                <a class="nav-internal-link" href="/anexos/jquery">Ejercicios de jQuery</a>
                             </li>
                         </ul>
                     </div>
@@ -41,7 +41,7 @@ include $VIEW_DIR . '/partials/__header.php';
                         <h3 class="text-heading mb-2 text-xl font-semibold">Ejercicios:</h3>
                         <ul class="list-inside list-disc space-y-2 text-secondary">
                             <li>
-                                <a class="nav-internal-link" href="/cliente/anexos/angular">Ejercicios de Angular</a>
+                                <a class="nav-internal-link" href="/anexos/angular">Ejercicios de Angular</a>
                             </li>
                         </ul>
                     </div>

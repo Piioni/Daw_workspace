@@ -10,6 +10,7 @@ $heading = $heading ?? 'Daw 25/26';
         <title><?= htmlspecialchars($title) ?></title>
         <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/assets/css/output.css" />
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     </head>
     <body class="flex min-h-screen flex-col">
         <header>

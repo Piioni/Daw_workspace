@@ -128,9 +128,6 @@ include $VIEW_DIR . '/partials/__header.php';
                     <div class="card border-2 border-dashed border-accent/30">
                         <h2 class="text-heading mb-4 text-2xl font-semibold">Búsqueda y remplazo</h2>
                         <ul id="busqueda_remplazo"></ul>
-                        <script>
-
-                        </script>
                     </div>
                 </div>
             </div>
