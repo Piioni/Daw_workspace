@@ -25,6 +25,7 @@ return [
         // Unidad 4
         '/servidor/4/cookies' => ['view' => '/cookies.php', 'directory' => '/pages/servidor/unidad_4/1'],
         '/servidor/4/sessions' => ['view' => '/sessions.php', 'directory' => '/pages/servidor/unidad_4/2'],
+        '/servidor/4/seguridad' => ['view' => '/seguridad.php', 'directory' => '/pages/servidor/unidad_4/4'],
 
         // CLIENTE
         '/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],
@@ -40,6 +41,10 @@ return [
         '/cliente/2/js2' => ['view' => '/js2.php', 'directory' => '/pages/cliente/unidad_2/2'],
         // Unidad 3
         '/cliente/3/objetos' => ['view' => '/objetos.php', 'directory' => '/pages/cliente/unidad_3/1'],
+
+        // Anexos
+        '/anexos' => ['view' => '/anexos.php', 'directory' => '/pages/anexos'],
+        '/anexos/jquery' => ['view' => '/ejercicios.php', 'directory' => '/pages/anexos/jquery'],
 
         // DISEÑO
         '/diseno' => ['view' => '/home_diseno.php', 'directory' => '/pages/diseno'],

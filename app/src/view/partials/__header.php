@@ -7,7 +7,7 @@ $heading = $heading ?? 'Daw 25/26';
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title><?= htmlspecialchars($title); ?></title>
+        <title><?= htmlspecialchars($title) ?></title>
         <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/assets/css/output.css" />
     </head>
@@ -17,15 +17,15 @@ $heading = $heading ?? 'Daw 25/26';
                 <div class="mx-auto flex max-w-screen-xl items-center justify-between p-4">
                     <a href="/" class="flex items-center space-x-3">
                         <img src="/assets/images/cat.jpg" class="h-8 rounded-full" alt="Piioni Logo" />
-                        <span class="text-title text-2xl font-semibold"><?php echo $heading; ?></span>
+                        <span class="text-title text-2xl font-semibold"><?= $heading; ?></span>
                     </a>
                     <div class="hidden items-center space-x-10 md:flex" id="navbar-default">
-                        <a href="/" class="nav-link <?php echo isCurrentUrl('/') ? 'active' : ''; ?>">Home</a>
+                        <a href="/" class="nav-link <?= isCurrentUrl('/') ? 'active' : ''; ?>">Home</a>
                         <ul class="flex space-x-4">
                             <li>
                                 <a
                                     href="/cliente"
-                                    class="nav-link <?php echo isCurrentUrl('/cliente') ? 'active' : ''; ?>"
+                                    class="nav-link <?= isCurrentUrl('/cliente') ? 'active' : ''; ?>"
                                 >
                                     Cliente
                                 </a>
@@ -33,7 +33,7 @@ $heading = $heading ?? 'Daw 25/26';
                             <li>
                                 <a
                                     href="/servidor"
-                                    class="nav-link <?php echo isCurrentUrl('/servidor') ? 'active' : ''; ?>"
+                                    class="nav-link <?= isCurrentUrl('/servidor') ? 'active' : ''; ?>"
                                 >
                                     Servidor
                                 </a>
@@ -41,9 +41,14 @@ $heading = $heading ?? 'Daw 25/26';
                             <li>
                                 <a
                                     href="/diseno"
-                                    class="nav-link <?php echo isCurrentUrl('/diseno') ? 'active' : ''; ?>"
+                                    class="nav-link <?= isCurrentUrl('/diseno') ? 'active' : ''; ?>"
                                 >
                                     Diseño
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/anexos" class="nav-link <?= isCurrentUrl('/anexos') ? 'active' : '' ?>">
+                                    Anexos
                                 </a>
                             </li>
                         </ul>
