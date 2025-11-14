@@ -25,20 +25,32 @@ include VIEW_DIR.'/partials/__header.php';
 </div>
 
 <script>
+    /**
+     * Función que actualiza la hora del reloj digital
+     * Obtiene la hora actual del sistema y la muestra en formato HH:MM:SS
+     */
     function actualizarReloj() {
+        // Obtener la fecha y hora actual del sistema
         const ahora = new Date();
+
+        // Extraer las horas, minutos y segundos
         let horas = ahora.getHours();
         let minutos = ahora.getMinutes();
         let segundos = ahora.getSeconds();
 
+        // Añadir un cero delante si el valor es menor que 10 (formato 00-59)
         horas = horas < 10 ? '0' + horas : horas;
         minutos = minutos < 10 ? '0' + minutos : minutos;
         segundos = segundos < 10 ? '0' + segundos : segundos;
 
+        // Actualizar el contenido del elemento HTML con id "reloj"
         document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
     }
 
+    // Ejecutar la función inmediatamente al cargar la página
     actualizarReloj();
+
+    // Actualizar el reloj cada 1000 milisegundos (1 segundo)
     setInterval(actualizarReloj, 1000);
 </script>
 
