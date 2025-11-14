@@ -1,7 +1,6 @@
 <?php
 $title = 'Homepage Diseño';
-global $VIEW_DIR;
-require $VIEW_DIR . '/partials/__header.php';
+require VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="w-full">
@@ -28,5 +27,5 @@ require $VIEW_DIR . '/partials/__header.php';
 </div>
 
 <?php
-require $VIEW_DIR . '/partials/__footer.php';
+require VIEW_DIR . '/partials/__footer.php';
 ?>

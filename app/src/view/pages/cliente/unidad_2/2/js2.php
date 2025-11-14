@@ -1,7 +1,6 @@
 <?php
 $title = 'Ejercicio 2 - Java Script';
-global $VIEW_DIR;
-require $VIEW_DIR . '/partials/__header.php';
+require VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-15 w-full">
@@ -92,6 +91,5 @@ require $VIEW_DIR . '/partials/__header.php';
 </script>
 
 <?php
-global $VIEW_DIR;
-require $VIEW_DIR . '/partials/__footer.php';
+require VIEW_DIR . '/partials/__footer.php';
 ?>

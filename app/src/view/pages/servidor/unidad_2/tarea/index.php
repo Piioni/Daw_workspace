@@ -41,8 +41,7 @@ if (! file_exists($archivo_productos)) {
 }
 $productos = file($archivo_productos, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-global $VIEW_DIR;
-require $VIEW_DIR . '/partials/__header.php';
+require VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-15 w-full">
@@ -309,5 +308,5 @@ require $VIEW_DIR . '/partials/__header.php';
 </div>
 
 <?php
-require $VIEW_DIR . '/partials/__footer.php';
+require VIEW_DIR . '/partials/__footer.php';
 ?>

@@ -1,6 +1,5 @@
 <?php
-global $VIEW_DIR;
-include $VIEW_DIR . '/partials/__header.php';
+include VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-20 w-full">
@@ -165,5 +164,5 @@ include $VIEW_DIR . '/partials/__header.php';
 </script>
 
 <?php
-include $VIEW_DIR . '/partials/__footer.php';
+include VIEW_DIR . '/partials/__footer.php';
 ?>

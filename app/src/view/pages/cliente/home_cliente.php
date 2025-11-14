@@ -1,7 +1,6 @@
 <?php
 $title = 'Homepage Cliente';
-global $VIEW_DIR;
-include $VIEW_DIR . '/partials/__header.php';
+include VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-20 w-full">
@@ -73,6 +72,9 @@ include $VIEW_DIR . '/partials/__header.php';
                         <h3 class="text-heading mb-2 text-xl font-semibold">Ejercicios:</h3>
                         <ul class="list-inside list-disc space-y-2 text-secondary">
                             <li>
+                                <a class="nav-internal-link" href="/cliente/3/tarea/">Reloj Digital (Tarea)</a>
+                            </li>
+                            <li>
                                 <a class="nav-internal-link" href="/cliente/3/objetos">Objetos predefinidos</a>
                             </li>
                         </ul>
@@ -83,4 +85,4 @@ include $VIEW_DIR . '/partials/__header.php';
     </main>
 </div>
 
-<?php include $VIEW_DIR . '/partials/__footer.php'; ?>
+<?php include VIEW_DIR . '/partials/__footer.php'; ?>

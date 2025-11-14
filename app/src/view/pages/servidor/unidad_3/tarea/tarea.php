@@ -201,8 +201,7 @@ for ($i = 1; $i <= 10; $i++) {
     $numeros_items[] = $i . ' - ' . $par;
 }
 
-global $VIEW_DIR;
-include $VIEW_DIR . '/partials/__header.php';
+include VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-20 w-full">
@@ -445,4 +444,4 @@ include $VIEW_DIR . '/partials/__header.php';
     </main>
 </div>
 
-<?php include $VIEW_DIR . '/partials/__footer.php'; ?>
+<?php include VIEW_DIR . '/partials/__footer.php'; ?>

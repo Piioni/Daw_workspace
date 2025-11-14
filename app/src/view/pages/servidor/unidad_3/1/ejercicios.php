@@ -312,8 +312,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 }
 
 // view
-global $VIEW_DIR;
-include $VIEW_DIR . '/partials/__header.php';
+include VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-20 w-full">
@@ -863,4 +862,4 @@ include $VIEW_DIR . '/partials/__header.php';
     </main>
 </div>
 
-<?php include $VIEW_DIR . '/partials/__footer.php'; ?>
+<?php include VIEW_DIR . '/partials/__footer.php'; ?>

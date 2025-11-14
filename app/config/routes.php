@@ -1,57 +1,58 @@
 <?php
 
-$GLOBALS['VIEW_DIR'] = __DIR__ . '/../src/view';
+require_once __DIR__ . '/../core/Router.php';
 
-return [
-    'view_dir' => __DIR__ . '/../src/view',
+use Core\Router;
 
-    'routes' => [
-        // Public pages
-        '/' => ['view' => '/homepage.php', 'directory' => '/pages'],
-        '/homepage' => ['view' => '/homepage.php', 'directory' => '/pages'],
+$router = new Router();
 
-        // SERVIDOR
-        '/servidor' => ['view' => '/home_servidor.php', 'directory' => '/pages/servidor'],
-        // Unidad 1
-        '/servidor/1/tarea' => ['view' => '/to-do_list.php', 'directory' => '/pages/servidor/unidad_1/tarea'],
-        '/servidor/1/php' => ['view' => '/php.php', 'directory' => '/pages/servidor/unidad_1/1'],
-        '/servidor/1/errores' => ['view' => '/errores.php', 'directory' => '/pages/servidor/unidad_1/3'],
-        // Unidad 2
-        '/servidor/2/tarea' => ['view' => '/index.php', 'directory' => '/pages/servidor/unidad_2/tarea'],
-        '/servidor/2/dinamic_web' => ['view' => '/dinamic_web.php', 'directory' => '/pages/servidor/unidad_2/1'],
-        // Unidad 3
-        '/servidor/3/tarea' => ['view' => '/tarea.php' , 'directory' => '/pages/servidor/unidad_3/tarea'],
-        '/servidor/3/ejercicios' => ['view' => '/ejercicios.php', 'directory' => '/pages/servidor/unidad_3/1'],
-        // Unidad 4
-        '/servidor/4/cookies' => ['view' => '/cookies.php', 'directory' => '/pages/servidor/unidad_4/1'],
-        '/servidor/4/sessions' => ['view' => '/sessions.php', 'directory' => '/pages/servidor/unidad_4/2'],
-        '/servidor/4/seguridad' => ['view' => '/seguridad.php', 'directory' => '/pages/servidor/unidad_4/4'],
+// Public pages
+$router->get('/', 'homepage.php', '/pages');
+$router->get('/homepage', 'homepage.php', '/pages');
 
-        // CLIENTE
-        '/cliente' => ['view' => '/home_cliente.php', 'directory' => '/pages/cliente'],
-        // Unidad 1
-        '/cliente/1/tarea' => ['view' => '/si.php', 'directory' => '/pages/cliente/unidad_1/tarea'],
-        '/cliente/1/ejercicios' => ['view' => '/ejercicios.php', 'directory' => '/pages/cliente/unidad_1'],
-        '/cliente/1/navegadores' => ['view' => '/navegadores.php', 'directory' => '/pages/cliente/unidad_1'],
-        '/cliente/1/interactivo' => ['view' => '/interactivo.php', 'directory' => '/pages/cliente/unidad_1'],
-        '/cliente/1/loaded' => ['view' => '/loaded.php', 'directory' => '/pages/cliente/unidad_1'],
-        // Unidad 2
-        '/cliente/2/tarea' => ['view' => '/tarea.php', 'directory' => '/pages/cliente/unidad_2/tarea'],
-        '/cliente/2/js1' => ['view' => '/js1.php', 'directory' => '/pages/cliente/unidad_2/1'],
-        '/cliente/2/js2' => ['view' => '/js2.php', 'directory' => '/pages/cliente/unidad_2/2'],
-        // Unidad 3
-        '/cliente/3/objetos' => ['view' => '/objetos.php', 'directory' => '/pages/cliente/unidad_3/1'],
+// SERVIDOR
+$router->get('/servidor', 'home_servidor.php', '/pages/servidor');
+// Unidad 1
+$router->get('/servidor/1/tarea', 'to-do_list.php', '/pages/servidor/unidad_1/tarea');
+$router->get('/servidor/1/php', 'php.php', '/pages/servidor/unidad_1/1');
+$router->get('/servidor/1/errores', 'errores.php', '/pages/servidor/unidad_1/3');
+// Unidad 2
+$router->get('/servidor/2/tarea', 'index.php', '/pages/servidor/unidad_2/tarea');
+$router->get('/servidor/2/dinamic_web', 'dinamic_web.php', '/pages/servidor/unidad_2/1');
+// Unidad 3
+$router->get('/servidor/3/tarea', 'tarea.php', '/pages/servidor/unidad_3/tarea');
+$router->get('/servidor/3/ejercicios', 'ejercicios.php', '/pages/servidor/unidad_3/1');
+// Unidad 4
+$router->get('/servidor/4/cookies', 'cookies.php', '/pages/servidor/unidad_4/1');
+$router->get('/servidor/4/sessions', 'sessions.php', '/pages/servidor/unidad_4/2');
+$router->get('/servidor/4/seguridad', 'seguridad.php', '/pages/servidor/unidad_4/4');
 
-        // Anexos
-        '/anexos' => ['view' => '/anexos.php', 'directory' => '/pages/anexos'],
-        '/anexos/jquery' => ['view' => '/ejercicios.php', 'directory' => '/pages/anexos/jquery'],
+// CLIENTE
+$router->get('/cliente', 'home_cliente.php', '/pages/cliente');
+// Unidad 1
+$router->get('/cliente/1/tarea', 'si.php', '/pages/cliente/unidad_1/tarea');
+$router->get('/cliente/1/ejercicios', 'ejercicios.php', '/pages/cliente/unidad_1');
+$router->get('/cliente/1/navegadores', 'navegadores.php', '/pages/cliente/unidad_1');
+$router->get('/cliente/1/interactivo', 'interactivo.php', '/pages/cliente/unidad_1');
+$router->get('/cliente/1/loaded', 'loaded.php', '/pages/cliente/unidad_1');
+// Unidad 2
+$router->get('/cliente/2/tarea', 'tarea.php', '/pages/cliente/unidad_2/tarea');
+$router->get('/cliente/2/js1', 'js1.php', '/pages/cliente/unidad_2/1');
+$router->get('/cliente/2/js2', 'js2.php', '/pages/cliente/unidad_2/2');
+// Unidad 3
+$router->get('/cliente/3/tarea', 'tarea3.php', '/pages/cliente/unidad_3/tarea');
+$router->get('/cliente/3/tarea/reloj', 'reloj.php', '/pages/cliente/unidad_3/tarea');
+$router->get('/cliente/3/objetos', 'objetos.php', '/pages/cliente/unidad_3/1');
 
-        // DISEÑO
-        '/diseno' => ['view' => '/home_diseno.php', 'directory' => '/pages/diseno'],
-        // Unidad 1
-        '/diseno/1/form' => ['view' => '/form.php', 'directory' => '/pages/diseno/unidad_1'],
+// Anexos
+$router->get('/anexos', 'anexos.php', '/pages/anexos');
+$router->get('/anexos/jquery', 'ejercicios.php', '/pages/anexos/jquery');
 
-        // Error pages
-        '/404' => ['view' => '/404.php', 'directory' => '/pages/errors'],
-    ],
-];
+// DISEÑO
+$router->get('/diseno', 'home_diseno.php', '/pages/diseno');
+$router->get('/diseno/1/form', 'form.php', '/pages/diseno/unidad_1');
+
+// Error pages
+$router->get('/404', '404.php', '/pages/errors');
+
+return ['router' => $router];

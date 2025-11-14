@@ -7,5 +7,8 @@
   },
   "require-dev": {
     "tightenco/duster": "^3.2"
-  }
+  },
+    "require": {
+        "ext-pdo": "*"
+    }
 }

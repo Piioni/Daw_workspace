@@ -31,8 +31,7 @@ $horas = floor($tiempoActivo / 3600);
 $minutos = floor(($tiempoActivo % 3600) / 60);
 $segundos = $tiempoActivo % 60;
 
-global $VIEW_DIR;
-include $VIEW_DIR . '/partials/__header.php';
+include VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mb-20 w-full flex flex-col flex-1">
@@ -133,4 +132,4 @@ include $VIEW_DIR . '/partials/__header.php';
     </main>
 </div>
 
-<?php include $VIEW_DIR . '/partials/__footer.php'; ?>
+<?php include VIEW_DIR . '/partials/__footer.php'; ?>

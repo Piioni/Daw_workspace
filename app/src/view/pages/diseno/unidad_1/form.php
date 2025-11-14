@@ -1,7 +1,6 @@
 <?php
 $title = 'Formulario - Diseño';
-global $VIEW_DIR;
-require $VIEW_DIR . '/partials/__header.php';
+require VIEW_DIR . '/partials/__header.php';
 ?>
 
 <div class="mx-auto flex min-h-screen justify-center p-10">
@@ -94,5 +93,5 @@ require $VIEW_DIR . '/partials/__header.php';
 </div>
 
 <?php
-require $VIEW_DIR . '/partials/__footer.php';
+require VIEW_DIR . '/partials/__footer.php';
 ?>
