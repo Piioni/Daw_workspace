@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../core/functions.php';
 require_once __DIR__ . '/../core/Router.php';
 require_once __DIR__ . '/../core/Middleware/Middleware.php';
@@ -27,13 +28,35 @@ try {
     $route = $router->match($uri, $method);
 
     if ($route) {
-        $viewPath = VIEW_DIR . $route['directory'] . '/' . $route['view'];
+        // Verificar si es un controlador o una vista
+        if ($route['isController']) {
+            // Manejar con controlador
+            $controllerClass = $route['controller'];
+            $action = $route['action'];
 
-        if (file_exists($viewPath)) {
-            require $viewPath;
+            if (!class_exists($controllerClass)) {
+                throw new \Exception("Controller class '$controllerClass' not found");
+            }
+
+            $controller = new $controllerClass();
+
+            if (!method_exists($controller, $action)) {
+                throw new \Exception("Method '$action' not found in controller '$controllerClass'");
+            }
+
+            // Ejecutar la acción del controlador
+            $controller->$action();
+
         } else {
-            http_response_code(404);
-            require VIEW_DIR . '/pages/errors/404.php';
+            // Manejar con vista tradicional
+            $viewPath = VIEW_DIR . $route['directory'] . '/' . $route['view'];
+
+            if (file_exists($viewPath)) {
+                require $viewPath;
+            } else {
+                http_response_code(404);
+                require VIEW_DIR . '/pages/errors/404.php';
+            }
         }
     } else {
         http_response_code(404);

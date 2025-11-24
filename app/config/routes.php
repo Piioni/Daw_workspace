@@ -3,9 +3,36 @@
 require_once __DIR__ . '/../core/Router.php';
 
 use Core\Router;
+use App\Controller\ExampleController;
+use App\Controller\ProductController;
 
 $router = new Router();
 
+// ============================================
+// EJEMPLOS DE RUTAS CON CONTROLADORES
+// ============================================
+// Rutas que usan controladores (nuevo sistema)
+$router->get('/example', [ExampleController::class, 'index']);
+$router->get('/api/data', [ExampleController::class, 'getData']);
+$router->post('/api/form', [ExampleController::class, 'handleForm']);
+
+// ============================================
+// PRODUCTOS - MVC
+// ============================================
+// Vista de productos
+$router->get('/productos', [ProductController::class, 'index']);
+
+// API de productos (JSON)
+$router->get('/api/productos', [ProductController::class, 'list']);
+$router->get('/api/productos/show', [ProductController::class, 'show']);
+$router->post('/api/productos/create', [ProductController::class, 'create']);
+$router->post('/api/productos/update', [ProductController::class, 'update']);
+$router->post('/api/productos/delete', [ProductController::class, 'delete']);
+$router->get('/api/productos/stats', [ProductController::class, 'stats']);
+
+// ============================================
+// RUTAS TRADICIONALES CON VISTAS
+// ============================================
 // Public pages
 $router->get('/', 'homepage.php', '/pages');
 $router->get('/homepage', 'homepage.php', '/pages');

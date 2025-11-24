@@ -10,15 +10,31 @@ class Router
     protected array $routeIndex = []; // Nuevo índice para búsqueda rápida
     protected $currentRoute = null;
 
-    public function add($method, $uri, $view, $directory): static
+    public function add($method, $uri, $handler, $directory = null): static
     {
+        // Determinar si es un controlador o una vista
+        $isController = is_array($handler);
+
         $route = [
             'uri' => $uri,
-            'view' => $view,
-            'directory' => $directory,
             'method' => strtoupper($method),
-            'middleware' => null
+            'middleware' => null,
+            'isController' => $isController
         ];
+
+        if ($isController) {
+            // Es un controlador [Controller::class, 'method']
+            $route['controller'] = $handler[0];
+            $route['action'] = $handler[1];
+            $route['view'] = null;
+            $route['directory'] = null;
+        } else {
+            // Es una vista tradicional
+            $route['view'] = $handler;
+            $route['directory'] = $directory;
+            $route['controller'] = null;
+            $route['action'] = null;
+        }
 
         $this->routes[] = $route;
 
@@ -30,29 +46,29 @@ class Router
         return $this;
     }
 
-    public function get($uri, $view, $directory = '/pages'): static
+    public function get($uri, $handler, $directory = null): static
     {
-        return $this->add('GET', $uri, $view, $directory);
+        return $this->add('GET', $uri, $handler, $directory);
     }
 
-    public function post($uri, $view, $directory = '/pages'): static
+    public function post($uri, $handler, $directory = null): static
     {
-        return $this->add('POST', $uri, $view, $directory);
+        return $this->add('POST', $uri, $handler, $directory);
     }
 
-    public function delete($uri, $view, $directory = '/pages'): static
+    public function delete($uri, $handler, $directory = null): static
     {
-        return $this->add('DELETE', $uri, $view, $directory);
+        return $this->add('DELETE', $uri, $handler, $directory);
     }
 
-    public function patch($uri, $view, $directory = '/pages'): static
+    public function patch($uri, $handler, $directory = null): static
     {
-        return $this->add('PATCH', $uri, $view, $directory);
+        return $this->add('PATCH', $uri, $handler, $directory);
     }
 
-    public function put($uri, $view, $directory = '/pages'): static
+    public function put($uri, $handler, $directory = null): static
     {
-        return $this->add('PUT', $uri, $view, $directory);
+        return $this->add('PUT', $uri, $handler, $directory);
     }
 
     public function only($middleware): static
