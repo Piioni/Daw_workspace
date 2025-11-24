@@ -6,20 +6,20 @@ function create_cookie(string $name, string $value, int $days): void
 {
     $exp = time() + max(1, $days) * SEGUNDOS_EN_UN_DIA;
     setcookie($name, $value, $exp, '/');
-    setcookie($name . '_expires', (string) $exp, $exp, '/');
+    setcookie($name.'_expires', (string) $exp, $exp, '/');
 }
 
 function delete_cookie(string $name): void
 {
     setcookie($name, '', time() - 3600, '/');
-    setcookie($name . '_expires', '', time() - 3600, '/');
-    unset($_COOKIE[$name], $_COOKIE[$name . '_expires']);
+    setcookie($name.'_expires', '', time() - 3600, '/');
+    unset($_COOKIE[$name], $_COOKIE[$name.'_expires']);
 }
 
 function get_cookie_expiry(string $name): ?int
 {
-    $key = $name . '_expires';
-    if (! empty($_COOKIE[$key]) && is_numeric($_COOKIE[$key])) {
+    $key = $name.'_expires';
+    if (!empty($_COOKIE[$key]) && is_numeric($_COOKIE[$key])) {
         return (int) $_COOKIE[$key];
     }
     return null;
@@ -118,13 +118,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             create_cookie('usuario', $valor, $dias);
 
             // Redirect with status to avoid resubmission and to show transient message
-            header('Location: ' . $base . '?status=created');
+            header('Location: '.$base.'?status=created');
             exit();
         }
 
         if ($_POST['action'] === 'eliminar_cookie') {
             delete_cookie('usuario');
-            header('Location: ' . $base . '?status=deleted');
+            header('Location: '.$base.'?status=deleted');
             exit();
         }
 
@@ -136,13 +136,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             create_cookie('idioma', $idioma, $dias);
 
-            header('Location: ' . $base . '?lang_status=created');
+            header('Location: '.$base.'?lang_status=created');
             exit();
         }
 
         if ($_POST['action'] === 'eliminar_idioma') {
             delete_cookie('idioma');
-            header('Location: ' . $base . '?lang_status=deleted');
+            header('Location: '.$base.'?lang_status=deleted');
             exit();
         }
 
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $existing = get_cart_items();
             $merged = array_merge($existing, $parsed);
             save_cart_items($merged);
-            header('Location: ' . $base . '?cart_status=added');
+            header('Location: '.$base.'?cart_status=added');
             exit();
         }
 
@@ -165,9 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $existing = get_cart_items();
                 $existing[] = ['name' => $name, 'price' => $price];
                 save_cart_items($existing);
-                header('Location: ' . $base . '?cart_status=added');
+                header('Location: '.$base.'?cart_status=added');
             } else {
-                header('Location: ' . $base . '?cart_status=invalid');
+                header('Location: '.$base.'?cart_status=invalid');
             }
             exit();
         }
@@ -176,20 +176,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($_POST['action'] === 'remove_item' && isset($_POST['index'])) {
             $idx = (int) $_POST['index'];
             remove_cart_item_by_index($idx);
-            header('Location: ' . $base . '?cart_status=removed');
+            header('Location: '.$base.'?cart_status=removed');
             exit();
         }
 
         // Clear cart
         if ($_POST['action'] === 'clear_cart') {
             clear_cart();
-            header('Location: ' . $base . '?cart_status=cleared');
+            header('Location: '.$base.'?cart_status=cleared');
             exit();
         }
     }
 }
 
-include VIEW_DIR . '/partials/__header.php';
+include VIEW_DIR.'/partials/__header.php';
 ?>
 
 <div class="mb-20 w-full">
@@ -205,78 +205,80 @@ include VIEW_DIR . '/partials/__header.php';
                 <div>
                     <?php if (!empty($_GET['status']) && $_GET['status'] === 'created'): ?>
 
-                    <div class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
-                        Cookie creada correctamente.
-                    </div>
+                        <div
+                            class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
+                            Cookie creada correctamente.
+                        </div>
 
                     <?php elseif (!empty($_GET['status']) && $_GET['status'] === 'deleted'): ?>
 
-                    <div class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
-                        Cookie eliminada.
-                    </div>
+                        <div
+                            class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
+                            Cookie eliminada.
+                        </div>
 
                     <?php endif; ?>
 
                     <?php if (!empty($_COOKIE['usuario'])):
-                            // Reutilizar helper para obtener expiración y formatear tiempo restante
-                            $valor = htmlspecialchars($_COOKIE['usuario']);
-                            $expires_ts = get_cookie_expiry('usuario');
-                            $tiempo_restante = format_remaining_time($expires_ts);
+                        // Reutilizar helper para obtener expiración y formatear tiempo restante
+                        $valor = htmlspecialchars($_COOKIE['usuario']);
+                        $expires_ts = get_cookie_expiry('usuario');
+                        $tiempo_restante = format_remaining_time($expires_ts);
                         ?>
 
-                    <div class="mb-4">
-                        <p class="text-lg">
-                            <strong>Valor:</strong>
+                        <div class="mb-4">
+                            <p class="text-lg">
+                                <strong>Valor:</strong>
 
-                            <?php echo $valor; ?>
-                        </p>
-                        <p class="text-sm text-secondary">
-                            <strong>Expira en:</strong>
+                                <?php echo $valor; ?>
+                            </p>
+                            <p class="text-sm text-secondary">
+                                <strong>Expira en:</strong>
 
-                            <?php echo htmlspecialchars($tiempo_restante); ?>
-                        </p>
-                    </div>
+                                <?php echo htmlspecialchars($tiempo_restante); ?>
+                            </p>
+                        </div>
 
-                    <form method="POST" action="">
-                        <input type="hidden" name="action" value="eliminar_cookie" />
-                        <button type="submit" class="btn-form">Eliminar cookie</button>
-                    </form>
+                        <form method="POST" action="">
+                            <input type="hidden" name="action" value="eliminar_cookie"/>
+                            <button type="submit" class="btn-form">Eliminar cookie</button>
+                        </form>
 
                     <?php else: ?>
 
-                    <!-- Cookie no está definida: mostrar formulario para crearla -->
-                    <p class="mb-4 text-secondary">
-                        La cookie
-                        <code>usuario</code>
-                        no está definida. Puedes crearla con el valor que quieras:
-                    </p>
-                    <form method="POST" action="" class="space-y-4">
-                        <input type="hidden" name="action" value="crear_cookie" />
-                        <div>
-                            <label class="form-label" for="cookie_value">Valor de la cookie:</label>
-                            <input
-                                id="cookie_value"
-                                name="cookie_value"
-                                type="text"
-                                class="form-input"
-                                placeholder="alumno123"
-                            />
-                        </div>
-                        <div>
-                            <label class="form-label" for="cookie_days">Días hasta expirar:</label>
-                            <input
-                                id="cookie_days"
-                                name="cookie_days"
-                                type="number"
-                                min="1"
-                                class="form-input"
-                                value="7"
-                            />
-                        </div>
-                        <div>
-                            <button type="submit" class="btn-form">Crear cookie</button>
-                        </div>
-                    </form>
+                        <!-- Cookie no está definida: mostrar formulario para crearla -->
+                        <p class="mb-4 text-secondary">
+                            La cookie
+                            <code>usuario</code>
+                            no está definida. Puedes crearla con el valor que quieras:
+                        </p>
+                        <form method="POST" action="" class="space-y-4">
+                            <input type="hidden" name="action" value="crear_cookie"/>
+                            <div>
+                                <label class="form-label" for="cookie_value">Valor de la cookie:</label>
+                                <input
+                                    id="cookie_value"
+                                    name="cookie_value"
+                                    type="text"
+                                    class="form-input"
+                                    placeholder="alumno123"
+                                />
+                            </div>
+                            <div>
+                                <label class="form-label" for="cookie_days">Días hasta expirar:</label>
+                                <input
+                                    id="cookie_days"
+                                    name="cookie_days"
+                                    type="number"
+                                    min="1"
+                                    class="form-input"
+                                    value="7"
+                                />
+                            </div>
+                            <div>
+                                <button type="submit" class="btn-form">Crear cookie</button>
+                            </div>
+                        </form>
 
                     <?php endif; ?>
                 </div>
@@ -288,15 +290,17 @@ include VIEW_DIR . '/partials/__header.php';
                 <div>
                     <?php if (!empty($_GET['lang_status']) && $_GET['lang_status'] === 'created'): ?>
 
-                    <div class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
-                        Cookie creada correctamente.
-                    </div>
+                        <div
+                            class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
+                            Cookie creada correctamente.
+                        </div>
 
                     <?php elseif (!empty($_GET['lang_status']) && $_GET['lang_status'] === 'deleted'): ?>
 
-                    <div class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
-                        Cookie de idioma eliminada correctamente
-                    </div>
+                        <div
+                            class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
+                            Cookie de idioma eliminada correctamente
+                        </div>
 
                     <?php endif; ?>
 
@@ -305,57 +309,57 @@ include VIEW_DIR . '/partials/__header.php';
                         $idioma = htmlspecialchars($_COOKIE['idioma']);
                         $expires_ts = get_cookie_expiry('idioma');
                         $tiempo_restante = format_remaining_time($expires_ts);
-                    ?>
+                        ?>
 
-                    <div class="mb-4">
-                        <p class="text-lg">
-                            <strong>Idioma seleccionado:</strong>
+                        <div class="mb-4">
+                            <p class="text-lg">
+                                <strong>Idioma seleccionado:</strong>
 
-                            <?php echo $idioma; ?>
-                        </p>
-                        <p class="text-sm text-secondary">
-                            <strong>Expira en:</strong>
+                                <?php echo $idioma; ?>
+                            </p>
+                            <p class="text-sm text-secondary">
+                                <strong>Expira en:</strong>
 
-                            <?php echo htmlspecialchars($tiempo_restante); ?>
-                        </p>
-                    </div>
+                                <?php echo htmlspecialchars($tiempo_restante); ?>
+                            </p>
+                        </div>
 
-                    <form method="POST" action="">
-                        <input type="hidden" name="action" value="eliminar_idioma" />
-                        <button type="submit" class="btn-form">Eliminar cookie de idioma</button>
-                    </form>
+                        <form method="POST" action="">
+                            <input type="hidden" name="action" value="eliminar_idioma"/>
+                            <button type="submit" class="btn-form">Eliminar cookie de idioma</button>
+                        </form>
 
                     <?php else : ?>
 
-                    <div>
-                        <p class="mb-4 text-secondary">Selecciona tu idioma preferido:</p>
-                        <form method="POST" action="" class="space-y-4">
-                            <input type="hidden" name="action" value="crear_idioma" />
-                            <div>
-                                <label class="form-label" for="idioma_select">Idioma:</label>
-                                <select id="idioma_select" name="idioma" class="form-input">
-                                    <option value="es">Español</option>
-                                    <option value="en">Inglés</option>
-                                    <option value="fr">Francés</option>
-                                    <option value="de">Alemán</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="form-label" for="idioma_days">Días hasta expirar:</label>
-                                <input
-                                    id="idioma_days"
-                                    name="idioma_days"
-                                    type="number"
-                                    min="1"
-                                    class="form-input"
-                                    value="365"
-                                />
-                            </div>
-                            <div>
-                                <button type="submit" class="btn-form">Guardar idioma</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div>
+                            <p class="mb-4 text-secondary">Selecciona tu idioma preferido:</p>
+                            <form method="POST" action="" class="space-y-4">
+                                <input type="hidden" name="action" value="crear_idioma"/>
+                                <div>
+                                    <label class="form-label" for="idioma_select">Idioma:</label>
+                                    <select id="idioma_select" name="idioma" class="form-input">
+                                        <option value="es">Español</option>
+                                        <option value="en">Inglés</option>
+                                        <option value="fr">Francés</option>
+                                        <option value="de">Alemán</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="form-label" for="idioma_days">Días hasta expirar:</label>
+                                    <input
+                                        id="idioma_days"
+                                        name="idioma_days"
+                                        type="number"
+                                        min="1"
+                                        class="form-input"
+                                        value="365"
+                                    />
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn-form">Guardar idioma</button>
+                                </div>
+                            </form>
+                        </div>
 
                     <?php endif; ?>
                 </div>
@@ -368,17 +372,17 @@ include VIEW_DIR . '/partials/__header.php';
                 </div>
 
                 <?php if (!empty($_GET['cart_status'])): ?>
-                <div class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
-                    <?php if ($_GET['cart_status'] === 'added'): ?>
-                        Productos añadidos al carrito.
-                    <?php elseif ($_GET['cart_status'] === 'removed'): ?>
-                        Producto eliminado.
-                    <?php elseif ($_GET['cart_status'] === 'cleared'): ?>
-                        Carrito vaciado.
-                    <?php elseif ($_GET['cart_status'] === 'invalid'): ?>
-                        Nombre de producto inválido.
-                    <?php endif; ?>
-                </div>
+                    <div class="mb-4 rounded-lg border-2 border-dashed border-accent/30 bg-accent/10 p-3 text-center">
+                        <?php if ($_GET['cart_status'] === 'added'): ?>
+                            Productos añadidos al carrito.
+                        <?php elseif ($_GET['cart_status'] === 'removed'): ?>
+                            Producto eliminado.
+                        <?php elseif ($_GET['cart_status'] === 'cleared'): ?>
+                            Carrito vaciado.
+                        <?php elseif ($_GET['cart_status'] === 'invalid'): ?>
+                            Nombre de producto inválido.
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
 
                 <div class="grid grid-cols-2 gap-20">
@@ -386,54 +390,57 @@ include VIEW_DIR . '/partials/__header.php';
                         <?php
                         $items = get_cart_items();
                         if (empty($items)):
-                        ?>
+                            ?>
                             <p class="text-secondary">El carrito está vacío.</p>
                         <?php else: ?>
                             <table class="w-full border-collapse">
                                 <thead>
-                                    <tr class="text-left">
-                                        <th class="pb-2">#</th>
-                                        <th class="pb-2">Producto</th>
-                                        <th class="pb-2">Precio</th>
-                                        <th class="pb-2">Acción</th>
-                                    </tr>
+                                <tr class="text-left">
+                                    <th class="pb-2">#</th>
+                                    <th class="pb-2">Producto</th>
+                                    <th class="pb-2">Precio</th>
+                                    <th class="pb-2">Acción</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($items as $i => $it): ?>
-                                        <tr>
-                                            <td class="py-2 align-top"><?php echo $i + 1; ?></td>
-                                            <td class="py-2 align-top"><?php echo htmlspecialchars($it['name']); ?></td>
-                                            <td class="py-2 align-top"><?php echo number_format((float)$it['price'], 2, ',', '.'); ?> €</td>
-                                            <td class="py-2 align-top">
-                                                <form method="POST" action="" style="display:inline">
-                                                    <input type="hidden" name="action" value="remove_item" />
-                                                    <input type="hidden" name="index" value="<?php echo $i; ?>" />
-                                                    <button type="submit" class="btn-form">Eliminar</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                <?php foreach ($items as $i => $it): ?>
+                                    <tr>
+                                        <td class="py-2 align-top"><?php echo $i + 1; ?></td>
+                                        <td class="py-2 align-top"><?php echo htmlspecialchars($it['name']); ?></td>
+                                        <td class="py-2 align-top"><?php echo number_format((float) $it['price'], 2,
+                                                ',', '.'); ?> €
+                                        </td>
+                                        <td class="py-2 align-top">
+                                            <form method="POST" action="" style="display:inline">
+                                                <input type="hidden" name="action" value="remove_item"/>
+                                                <input type="hidden" name="index" value="<?php echo $i; ?>"/>
+                                                <button type="submit" class="btn-form">Eliminar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
 
                             <?php
-                                // totals: subtotal, IVA 21%, total
-                                $subtotal = 0.0;
-                                foreach ($items as $it) {
-                                    $subtotal += (float) $it['price'];
-                                }
-                                $iva_rate = 0.21;
-                                $iva = $subtotal * $iva_rate;
-                                $total = $subtotal + $iva;
+                            // totals: subtotal, IVA 21%, total
+                            $subtotal = 0.0;
+                            foreach ($items as $it) {
+                                $subtotal += (float) $it['price'];
+                            }
+                            $iva_rate = 0.21;
+                            $iva = $subtotal * $iva_rate;
+                            $total = $subtotal + $iva;
                             ?>
                             <div class="mt-4">
                                 <p><strong>Subtotal:</strong> <?php echo number_format($subtotal, 2, ',', '.'); ?> €</p>
                                 <p><strong>IVA (21%):</strong> <?php echo number_format($iva, 2, ',', '.'); ?> €</p>
-                                <p class="text-lg"><strong>Total:</strong> <?php echo number_format($total, 2, ',', '.'); ?> €</p>
+                                <p class="text-lg"><strong>Total:</strong> <?php echo number_format($total, 2, ',',
+                                        '.'); ?> €</p>
                             </div>
 
                             <form method="POST" action="" class="mt-4">
-                                <input type="hidden" name="action" value="clear_cart" />
+                                <input type="hidden" name="action" value="clear_cart"/>
                                 <button type="submit" class="btn-form">Vaciar carrito</button>
                             </form>
                         <?php endif; ?>
@@ -443,14 +450,15 @@ include VIEW_DIR . '/partials/__header.php';
                         <div class="mb-4">
                             <p class="text-secondary">Agregar producto individual:</p>
                             <form method="POST" action="" class="space-y-3">
-                                <input type="hidden" name="action" value="add_single" />
+                                <input type="hidden" name="action" value="add_single"/>
                                 <div>
                                     <label class="form-label" for="product_name">Nombre</label>
-                                    <input id="product_name" name="product_name" type="text" class="form-input" />
+                                    <input id="product_name" name="product_name" type="text" class="form-input"/>
                                 </div>
                                 <div>
                                     <label class="form-label" for="product_price">Precio (€)</label>
-                                    <input id="product_price" name="product_price" type="number" step="0.01" min="0" class="form-input" />
+                                    <input id="product_price" name="product_price" type="number" step="0.01" min="0"
+                                           class="form-input"/>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn-form">Añadir producto</button>
@@ -460,11 +468,13 @@ include VIEW_DIR . '/partials/__header.php';
 
                         <div>
                             <p class="text-secondary mb-2">Agregar múltiples (una línea por producto):</p>
-                            <p class="text-xs text-secondary mb-2">Formato por línea: nombre,precio — ejemplo: Camiseta,19.99</p>
+                            <p class="text-xs text-secondary mb-2">Formato por línea: nombre,precio — ejemplo:
+                                Camiseta,19.99</p>
                             <form method="POST" action="">
-                                <input type="hidden" name="action" value="add_products" />
+                                <input type="hidden" name="action" value="add_products"/>
                                 <div>
-                                    <textarea name="csv_products" rows="6" class="form-input" placeholder="Camiseta,19.99&#10;Pantalón,39.50"></textarea>
+                                    <textarea name="csv_products" rows="6" class="form-input"
+                                              placeholder="Camiseta,19.99&#10;Pantalón,39.50"></textarea>
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn-form">Añadir productos</button>
@@ -479,5 +489,5 @@ include VIEW_DIR . '/partials/__header.php';
 </div>
 
 <?php
-include VIEW_DIR . '/partials/__footer.php';
+include VIEW_DIR.'/partials/__footer.php';
 ?>
