@@ -1,14 +1,17 @@
 {
   "autoload": {
     "psr-4": {
+      "App\\Controller\\": "app/src/controller/",
+      "model\\": "app/src/model/",
       "views\\": "app/src/view/",
       "config\\": "app/config/"
     }
   },
+  "require": {
+    "php": ">=8.4",
+    "ext-pdo": "*"
+  },
   "require-dev": {
     "tightenco/duster": "^3.2"
-  },
-    "require": {
-        "ext-pdo": "*"
-    }
+  }
 }
