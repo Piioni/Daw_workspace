@@ -1,9 +1,9 @@
 <?php
 
-namespace model\service;
+namespace model\user;
 
-use model\repository\UserRepository;
-use model\entity\User;
+use model\user\UserRepository;
+use model\user\User;
 
 class UserService
 {

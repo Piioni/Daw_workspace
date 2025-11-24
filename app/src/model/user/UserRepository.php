@@ -1,9 +1,9 @@
 <?php
 
-namespace model\repository;
+namespace model\user;
 
 use model\Database;
-use model\entity\User;
+use model\user\User;
 use PDO;
 
 class UserRepository

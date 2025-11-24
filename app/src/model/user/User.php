@@ -1,10 +1,10 @@
 <?php
 
-namespace model\entity;
+namespace model\user;
 
 class User
 {
-    private int $id {
+    public int $id {
         get {
             return $this->id;
         }
@@ -12,7 +12,7 @@ class User
             $this->id = $value;
         }
     }
-    private string $nombre {
+    public string $nombre {
         get {
             return $this->nombre;
         }
@@ -20,7 +20,7 @@ class User
             $this->nombre = $value;
         }
     }
-    private string $email {
+    public string $email {
         get {
             return $this->email;
         }
@@ -28,7 +28,7 @@ class User
             $this->email = $value;
         }
     }
-    private string $password {
+    public string $password {
         get {
             return $this->password;
         }
@@ -36,7 +36,7 @@ class User
             $this->password = $value;
         }
     }
-    private string $rol {
+    public string $rol {
         get {
             return $this->rol;
         }
