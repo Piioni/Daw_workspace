@@ -11,8 +11,7 @@ include VIEW_DIR . '/partials/__header.php';
     </div>
     <main class="mx-8 mt-12 flex flex-col gap-2">
         <div
-            class="space-y-10 rounded-lg border border-border bg-secondary p-6 px-10 shadow-lg dark:border-border-dark dark:bg-secondary-dark"
-        >
+            class="space-y-10 rounded-lg border border-border bg-secondary p-6 px-10 shadow-lg dark:border-border-dark dark:bg-secondary-dark">
             <div>
                 <p class="text-2xl">> Adivina mi número:</p>
                 <p class="mt-3 text-lg text-secondary">
@@ -78,8 +77,7 @@ include VIEW_DIR . '/partials/__header.php';
                 <div
                     class="mt-4 rounded-lg bg-gray-50 p-4 dark:bg-gray-700"
                     style="display: none"
-                    id="container_grados"
-                >
+                    id="container_grados">
                     <p id="result_grados" class="text-lg font-medium"></p>
                 </div>
             </div>
@@ -112,11 +110,11 @@ include VIEW_DIR . '/partials/__header.php';
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         // Rectangle area calculation
         const rectangleForm = document.querySelector('#rectangleForm');
         const container_area = document.querySelector('#container_area');
-        rectangleForm.addEventListener('submit', function (event) {
+        rectangleForm.addEventListener('submit', function(event) {
             event.preventDefault();
             const altura = parseFloat(document.querySelector('#altura').value);
             const anchura = parseFloat(document.querySelector('#anchura').value);
@@ -200,7 +198,7 @@ include VIEW_DIR . '/partials/__header.php';
         const container_grados = document.querySelector('#container_grados');
         const result_grados = document.querySelector('#result_grados');
 
-        conversionTypeSelect.addEventListener('change', function () {
+        conversionTypeSelect.addEventListener('change', function() {
             updateFormDisplay();
             result_grados.textContent = '';
             container_grados.style.display = 'none';
@@ -222,7 +220,7 @@ include VIEW_DIR . '/partials/__header.php';
             }
         }
 
-        celsiusForm.addEventListener('submit', function (event) {
+        celsiusForm.addEventListener('submit', function(event) {
             event.preventDefault();
             const celsius = parseFloat(document.querySelector('#celsius').value);
             const fahrenheit = (celsius * 9) / 5 + 32;
@@ -230,7 +228,7 @@ include VIEW_DIR . '/partials/__header.php';
             container_grados.style.display = 'block';
         });
 
-        fahrenheitForm.addEventListener('submit', function (event) {
+        fahrenheitForm.addEventListener('submit', function(event) {
             event.preventDefault();
             const fahrenheit = parseFloat(document.querySelector('#fahrenheit').value);
             const celsius = ((fahrenheit - 32) * 5) / 9;

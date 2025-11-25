@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use JetBrains\PhpStorm\NoReturn;
 use model\product\ProductService;
 
 class ProductController extends Controller
@@ -16,7 +17,7 @@ class ProductController extends Controller
     /**
      * Listar todos los productos
      */
-    public function index()
+    public function index(): void
     {
         try {
             $productos = $this->productService->getAllProducts();
@@ -38,6 +39,7 @@ class ProductController extends Controller
     /**
      * Obtener un producto por ID (API JSON)
      */
+    #[NoReturn]
     public function show()
     {
         $id = (int)$this->input('id');
@@ -69,7 +71,7 @@ class ProductController extends Controller
     /**
      * Obtener todos los productos en formato JSON (API)
      */
-    public function list()
+    public function list(): void
     {
         try {
             $productos = $this->productService->getAllProducts();
@@ -95,7 +97,8 @@ class ProductController extends Controller
     /**
      * Crear un nuevo producto
      */
-    public function create()
+    #[NoReturn]
+    public function create(): void
     {
         if (!$this->isPost()) {
             $this->json([
@@ -125,7 +128,8 @@ class ProductController extends Controller
     /**
      * Actualizar un producto existente
      */
-    public function update()
+    #[NoReturn]
+    public function update(): void
     {
         if (!$this->isPost()) {
             $this->json([
@@ -170,7 +174,8 @@ class ProductController extends Controller
     /**
      * Eliminar un producto
      */
-    public function delete()
+    #[NoReturn]
+    public function delete(): void
     {
         if (!$this->isPost()) {
             $this->json([
@@ -199,7 +204,7 @@ class ProductController extends Controller
     /**
      * Obtener estadísticas de productos
      */
-    public function stats()
+    public function stats(): void
     {
         try {
             $stats = $this->productService->getStats();
