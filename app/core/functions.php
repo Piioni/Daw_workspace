@@ -23,3 +23,36 @@ function isCurrentUrl($url): bool
 {
     return $_SERVER['REQUEST_URI'] === $url;
 }
+
+/**
+ * Verificar si el usuario está autenticado
+ */
+function isAuthenticated(): bool
+{
+    return isset($_SESSION['user_id']);
+}
+
+/**
+ * Obtener el usuario autenticado
+ */
+function getAuthUser(): ?array
+{
+    if (!isAuthenticated()) {
+        return null;
+    }
+
+    return [
+        'id' => $_SESSION['user_id'],
+        'nombre' => $_SESSION['user_name'],
+        'email' => $_SESSION['user_email'],
+        'rol' => $_SESSION['user_rol']
+    ];
+}
+
+/**
+ * Obtener el nombre del usuario autenticado
+ */
+function getAuthUserName(): ?string
+{
+    return $_SESSION['user_name'] ?? null;
+}

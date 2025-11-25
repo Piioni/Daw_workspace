@@ -3,25 +3,24 @@
 require_once __DIR__ . '/../core/Router.php';
 
 use Core\Router;
-use App\Controller\ExampleController;
 use App\Controller\ProductController;
+use App\Controller\AuthController;
 
 $router = new Router();
 
 // ============================================
-// EJEMPLOS DE RUTAS CON CONTROLADORES
+// Rutas MVC
 // ============================================
-// Rutas que usan controladores (nuevo sistema)
-$router->get('/example', [ExampleController::class, 'index']);
-$router->get('/api/data', [ExampleController::class, 'getData']);
-$router->post('/api/form', [ExampleController::class, 'handleForm']);
+// Autenticación
+$router->get('/login', [AuthController::class, 'showLogin']);
+$router->post('/login', [AuthController::class, 'login']);
+$router->get('/register', [AuthController::class, 'showRegister']);
+$router->post('/register', [AuthController::class, 'register']);
+$router->get('/logout', [AuthController::class, 'logout']);
+$router->get('/profile', [AuthController::class, 'profile']);
 
-// ============================================
-// PRODUCTOS - MVC
-// ============================================
-// Vista de productos
+// Productos
 $router->get('/productos', [ProductController::class, 'index']);
-
 // API de productos (JSON)
 $router->get('/api/productos', [ProductController::class, 'list']);
 $router->get('/api/productos/show', [ProductController::class, 'show']);
