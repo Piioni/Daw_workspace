@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use JetBrains\PhpStorm\NoReturn;
 use model\user\UserService;
 use model\user\User;
 
@@ -80,10 +81,10 @@ class AuthController extends Controller
         }
 
         // Iniciar sesión
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_name'] = $user->nombre;
-        $_SESSION['user_email'] = $user->email;
-        $_SESSION['user_rol'] = $user->rol;
+        $_SESSION['id_usuario'] = (int) $user->id;
+        $_SESSION['nombre'] = $user->nombre;
+        $_SESSION['email'] = $user->email;
+        $_SESSION['id_rol'] = (int) $user->rol;
 
         // Redirigir al home
         $this->redirect('/');
@@ -92,6 +93,7 @@ class AuthController extends Controller
     /**
      * Procesar registro
      */
+    #[NoReturn]
     public function register(): void
     {
         if (!$this->isPost()) {
@@ -102,9 +104,10 @@ class AuthController extends Controller
         $email = $this->input('email');
         $password = $this->input('password');
         $confirmPassword = $this->input('confirm_password');
+        $rol = (int)$this->input('rol');
 
         // Validar campos
-        if (empty($nombre) || empty($email) || empty($password) || empty($confirmPassword)) {
+        if (empty($nombre) || empty($email) || empty($password) || empty($confirmPassword) || empty($rol)) {
             $_SESSION['error'] = 'Por favor, complete todos los campos';
             $this->redirect('/register');
         }
@@ -121,8 +124,8 @@ class AuthController extends Controller
             $this->redirect('/register');
         }
 
-        // Crear usuario (rol por defecto: 2 = usuario normal)
-        $result = $this->userService->createUser($nombre, $email, $password, 2);
+        // Crear usuario con el rol seleccionado
+        $result = $this->userService->createUser($nombre, $email, $password, $rol);
 
         if (!$result) {
             $_SESSION['error'] = 'El email ya está registrado o es inválido';
@@ -158,7 +161,7 @@ class AuthController extends Controller
             $this->redirect('/login');
         }
 
-        $userId = $_SESSION['user_id'];
+        $userId = $_SESSION['id_usuario'];
         $user = $this->userService->getUserById($userId);
 
         if (!$user) {
@@ -171,4 +174,3 @@ class AuthController extends Controller
         ]);
     }
 }
-

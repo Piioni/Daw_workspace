@@ -17,7 +17,7 @@ class Database
     private function __construct()
     {
         $host = 'mysql';
-        $db = 'tal';  // Debe coincidir con MYSQL_DATABASE en .env
+        $db = 'tal';
         $user = 'user';
         $pass = 'password';
         $charset = 'utf8mb4';

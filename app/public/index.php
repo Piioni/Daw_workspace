@@ -4,9 +4,7 @@ session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../core/functions.php';
 require_once __DIR__ . '/../core/Router.php';
-require_once __DIR__ . '/../core/Middleware/Middleware.php';
-require_once __DIR__ . '/../core/Middleware/Authenticated.php';
-require_once __DIR__ . '/../core/Middleware/Guest.php';
+require_once __DIR__ . '/../core/Middleware/index.php';
 
 use Core\Router;
 

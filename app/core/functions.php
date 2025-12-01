@@ -29,7 +29,7 @@ function isCurrentUrl($url): bool
  */
 function isAuthenticated(): bool
 {
-    return isset($_SESSION['user_id']);
+    return isset($_SESSION['id_usuario']);
 }
 
 /**
@@ -42,10 +42,10 @@ function getAuthUser(): ?array
     }
 
     return [
-        'id' => $_SESSION['user_id'],
-        'nombre' => $_SESSION['user_name'],
-        'email' => $_SESSION['user_email'],
-        'rol' => $_SESSION['user_rol']
+        'id' => $_SESSION['id_usuario'],
+        'nombre' => $_SESSION['nombre'],
+        'email' => $_SESSION['email'],
+        'rol' => $_SESSION['id_rol']
     ];
 }
 

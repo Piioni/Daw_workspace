@@ -5,6 +5,7 @@ require_once __DIR__ . '/../core/Router.php';
 use Core\Router;
 use App\Controller\ProductController;
 use App\Controller\AuthController;
+use App\Controller\AdminController;
 
 $router = new Router();
 
@@ -12,12 +13,15 @@ $router = new Router();
 // Rutas MVC
 // ============================================
 // Autenticación
-$router->get('/login', [AuthController::class, 'showLogin']);
+$router->get('/login', [AuthController::class, 'showLogin'])->only('guest');
 $router->post('/login', [AuthController::class, 'login']);
-$router->get('/register', [AuthController::class, 'showRegister']);
+$router->get('/register', [AuthController::class, 'showRegister'])->only('guest');
 $router->post('/register', [AuthController::class, 'register']);
-$router->get('/logout', [AuthController::class, 'logout']);
-$router->get('/profile', [AuthController::class, 'profile']);
+$router->get('/logout', [AuthController::class, 'logout'])->only('auth');
+$router->get('/profile', [AuthController::class, 'profile'])->only('auth');
+
+// Administración
+$router->get('/admin', [AdminController::class, 'dashboard'])->only('admin');
 
 // Productos
 $router->get('/productos', [ProductController::class, 'index']);

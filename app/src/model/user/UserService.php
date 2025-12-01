@@ -35,6 +35,10 @@ class UserService
             return false;
         }
 
+        if (!$this->validateRol($rol)) {
+            return false;
+        }
+
         if ($this->userRepository->findByEmail($email) !== null) {
             return false; // Email already exists
         }
@@ -61,5 +65,10 @@ class UserService
     private function validateEmail(string $email): bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    private function validateRol(int $rol): bool
+    {
+        return in_array($rol, [1, 2, 3]); // 1: Admin, 2: Usuario, 3: Moderador
     }
 }
